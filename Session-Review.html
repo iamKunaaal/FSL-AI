@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Session Review &amp; Edit | Neorise FSL</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-container": "#ede0ff",
+            "on-primary": "#ffffff",
+            "surface-tint": "#732ee4",
+            "tertiary-container": "#b83b0e",
+            "on-secondary-fixed-variant": "#005049",
+            "surface-container-high": "#e2e8f8",
+            "secondary-container": "#86f2e4",
+            "on-secondary": "#ffffff",
+            "on-tertiary-container": "#ffded5",
+            "on-error-container": "#93000a",
+            "surface": "#f9f9ff",
+            "on-surface": "#151c27",
+            "error-container": "#ffdad6",
+            "surface-variant": "#dce2f3",
+            "primary": "#630ed4",
+            "inverse-primary": "#d2bbff",
+            "surface-container-highest": "#dce2f3",
+            "on-primary-fixed-variant": "#5a00c6",
+            "error": "#ba1a1a",
+            "surface-container": "#e7eefe",
+            "background": "#f9f9ff",
+            "tertiary-fixed-dim": "#ffb59f",
+            "secondary": "#006a61",
+            "on-secondary-fixed": "#00201d",
+            "tertiary-fixed": "#ffdbd0",
+            "on-tertiary-fixed": "#3a0a00",
+            "primary-fixed": "#eaddff",
+            "surface-bright": "#f9f9ff",
+            "surface-container-low": "#f0f3ff",
+            "secondary-fixed": "#89f5e7",
+            "on-background": "#151c27",
+            "inverse-on-surface": "#ebf1ff",
+            "on-error": "#ffffff",
+            "inverse-surface": "#2a313d",
+            "primary-container": "#7c3aed",
+            "primary-fixed-dim": "#d2bbff",
+            "surface-dim": "#d3daea",
+            "on-tertiary": "#ffffff",
+            "on-surface-variant": "#4a4455",
+            "on-primary-fixed": "#25005a",
+            "on-tertiary-fixed-variant": "#852400",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#6bd8cb",
+            "tertiary": "#922800",
+            "outline-variant": "#ccc3d8",
+            "outline": "#7b7487",
+            "on-secondary-container": "#006f66"
+          },
+          fontFamily: {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="bg-surface text-on-surface">
+
+  <!-- Top Navigation — unified with Screen-1 -->
+  <header class="bg-white/80 backdrop-blur-xl top-0 sticky z-50 shadow-sm">
+    <div class="flex justify-between items-center w-full px-14 py-3 max-w-screen-2xl mx-auto">
+      <div class="flex items-center gap-8">
+        <a href="Screen-1.html" class="text-xl font-bold tracking-tighter text-violet-700">Neorise FSL</a>
+        <nav class="hidden md:flex items-center gap-6 font-sans text-sm font-medium tracking-tight">
+          <a class="text-slate-600 hover:text-slate-900 transition-colors" href="Screen-1.html">Dashboard</a>
+          <a class="text-violet-700 font-semibold border-b-2 border-violet-600 pb-1" href="Screen-1.html">Projects</a>
+          <a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">Framework</a>
+          <a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">Settings</a>
+        </nav>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="flex items-center bg-slate-100 rounded-lg px-3 py-1.5 gap-2">
+          <span class="material-symbols-outlined text-slate-500 text-sm">search</span>
+          <input class="bg-transparent border-none focus:ring-0 text-sm w-48" placeholder="Search curriculum..." type="text" />
+        </div>
+        <button class="p-2 hover:bg-slate-100 rounded-lg transition-colors">
+          <span class="material-symbols-outlined text-slate-600">notifications</span>
+        </button>
+        <button class="p-2 hover:bg-slate-100 rounded-lg transition-colors">
+          <span class="material-symbols-outlined text-slate-600">help</span>
+        </button>
+        <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+          <div class="text-right hidden sm:block">
+            <p class="text-xs font-semibold text-on-surface">Kunal Darji</p>
+            <p class="text-[10px] text-slate-500">Admin</p>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center text-xs font-bold" title="Kunal Darji, Admin">KD</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pb-24 min-h-screen">
+    <!-- Page Header -->
+    <div class="px-14 py-6 bg-surface border-b border-slate-100">
+      <div class="max-w-screen-2xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <nav class="flex items-center gap-1.5 text-xs text-slate-500 font-medium mb-3">
+              <a href="Screen-1.html" class="hover:text-primary transition-colors">Dashboard</a>
+              <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              <a href="Project-Detail.html" class="hover:text-primary transition-colors">Smart Ethical Marketing</a>
+              <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              <a id="sr-breadcrumb-week" href="#" class="hover:text-primary transition-colors">Week 1: Explore</a>
+              <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              <span id="sr-breadcrumb-session" class="text-primary font-bold">Session 1</span>
+            </nav>
+            <h1 id="sr-session-h1" class="text-2xl font-bold tracking-tight mb-2">Session 1: Project Launch &amp; Context Exploration</h1>
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span id="sr-period-badge" class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold uppercase tracking-wide">Block Period 1 · Challenge 1</span>
+              <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+              <span id="sr-week-badge" class="text-slate-500 text-sm font-medium">Week 1 — Explore</span>
+              <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+              <span class="text-slate-500 text-sm font-medium">Grade 8</span>
+              <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+              <span class="px-2.5 py-0.5 bg-teal-100 text-teal-700 rounded-full text-xs font-bold">Approved</span>
+            </div>
+          </div>
+          <!-- AI Status Card -->
+          <div class="bg-surface-container-lowest border border-outline-variant/20 rounded-xl px-4 py-3 shadow-sm flex items-center gap-3 shrink-0">
+            <div class="w-9 h-9 rounded-lg bg-amber-50 flex items-center justify-center text-amber-500 shrink-0">
+              <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+            </div>
+            <div class="text-[13px]">
+              <p class="font-semibold text-on-surface">Claude Sonnet 4</p>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="px-2 py-0.5 bg-slate-100 rounded text-[11px] font-mono text-slate-600">3,247 tokens</span>
+                <span class="text-slate-400 text-[11px]">Generated 2 hrs ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Split Panel Layout -->
+    <div class="flex flex-col lg:flex-row h-full min-h-[calc(100vh-200px)]">
+
+      <!-- LEFT PANEL: Framework Input (read-only) -->
+      <section class="lg:w-[52%] bg-surface-container-low/60 border-r border-slate-200/70 overflow-y-auto">
+        <div class="p-8 lg:p-10">
+          <div class="flex items-center gap-2 mb-8 pb-4 border-b border-slate-200/60">
+            <span class="material-symbols-outlined text-slate-400 text-[20px]">input</span>
+            <h2 class="text-base font-bold text-on-surface">Framework Input</h2>
+            <span class="ml-auto text-xs text-slate-400 font-medium">Read-only · What AI received</span>
+          </div>
+
+          <!-- Generic Session Template -->
+          <div class="mb-8">
+            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Generic Session Template</label>
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-100">
+              <p id="sr-generic-template" class="text-sm text-slate-700 leading-relaxed">Project Launch &amp; Context Exploration — Introduce the project theme through a real-world problem, story, or scenario. Students should connect with the topic personally and understand why it matters in the real world.</p>
+            </div>
+          </div>
+
+          <!-- Kaushal Bodh Questions -->
+          <div class="mb-8">
+            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Kaushal Bodh Questions</label>
+            <div id="sr-kb-list" class="space-y-3">
+              <div class="flex gap-3 items-start">
+                <span class="w-5 h-5 rounded-full bg-violet-100 text-primary flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5">1</span>
+                <p class="text-sm text-slate-700">What will I be able to do? What will I need?</p>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="w-5 h-5 rounded-full bg-violet-100 text-primary flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5">2</span>
+                <p class="text-sm text-slate-700">Connecting with the world of jobs and careers. Why is this relevant?</p>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="w-5 h-5 rounded-full bg-violet-100 text-primary flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5">3</span>
+                <p class="text-sm text-slate-700">How does this topic affect people around me in daily life?</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Competency Mapping -->
+          <div class="mb-8">
+            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Competency Mapping</label>
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-100">
+              <div class="flex flex-wrap items-center gap-2 mb-4">
+                <span id="sr-sp-tag" class="px-3 py-1.5 rounded-lg bg-[#0D9488]/10 text-[#0D9488] text-xs font-bold flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#0D9488]"></span>
+                  SP13 · Global Citizenship
+                </span>
+                <span id="sr-msp-tag" class="px-2.5 py-1 rounded-lg bg-primary/10 text-primary text-xs font-mono font-bold">MSP13.C1</span>
+              </div>
+              <!-- LL / MM / HS Tabs -->
+              <div class="flex p-1 bg-surface-container-low rounded-lg w-fit mb-4">
+                <button class="px-4 py-1.5 rounded-md bg-white text-primary text-xs font-bold shadow-sm">LL</button>
+                <button class="px-4 py-1.5 rounded-md text-slate-500 text-xs font-bold hover:bg-white/60 transition-colors">MM</button>
+                <button class="px-4 py-1.5 rounded-md text-slate-500 text-xs font-bold hover:bg-white/60 transition-colors">HS</button>
+              </div>
+              <div class="p-3.5 rounded-lg bg-surface-container-low/50">
+                <p id="sr-comp-desc" class="text-sm text-slate-600 leading-relaxed">Recognises and appreciates similarities and differences across cultures, identities, and communities in the context of the project topic.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Period Duration -->
+          <div class="mb-8">
+            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Period Duration</label>
+            <div class="flex items-center gap-3">
+              <span id="sr-period-label" class="px-4 py-2 rounded-full bg-primary text-white text-sm font-bold">Block Period 1</span>
+              <span class="text-slate-600 text-sm font-medium">~80 minutes total engagement time</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- RIGHT PANEL: AI Generated Output (editable) -->
+      <section class="lg:w-[48%] bg-white overflow-y-auto">
+        <div class="p-8 lg:p-10">
+          <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+              <h2 class="text-base font-bold text-on-surface">AI Generated Output</h2>
+              <span class="ml-2 text-xs text-slate-400 font-medium">Editable</span>
+            </div>
+            <button class="text-primary text-xs font-semibold flex items-center gap-1 hover:underline">
+              <span class="material-symbols-outlined text-[16px]">history</span>
+              Version History
+            </button>
+          </div>
+
+          <!-- Weekly Objective -->
+          <div class="mb-8 group">
+            <div class="flex items-center justify-between mb-3">
+              <label class="block text-[10px] font-bold uppercase tracking-widest text-primary">Weekly Objective</label>
+              <button class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 text-xs font-semibold text-slate-400 hover:text-primary px-2 py-1 rounded-lg hover:bg-primary/5">
+                <span class="material-symbols-outlined text-[15px]">refresh</span>
+                Regenerate
+              </button>
+            </div>
+            <textarea id="sr-weekly-objective" class="w-full bg-slate-50 border border-slate-100 focus:ring-2 focus:ring-primary/20 focus:border-transparent rounded-xl px-4 py-3.5 text-sm text-on-surface resize-none min-h-[100px] leading-relaxed transition-all">By the end of this week, students will be able to deconstruct a digital advertisement into its ethical components and articulate how data privacy impacts the balance of power between brands and consumers.</textarea>
+          </div>
+
+          <!-- Session Description & Flow -->
+          <div class="mb-8 group">
+            <div class="flex items-center justify-between mb-3">
+              <label class="block text-[10px] font-bold uppercase tracking-widest text-primary">Session Description &amp; Flow</label>
+              <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button class="text-xs font-medium text-slate-400 hover:text-error transition-colors">Reset to Original</button>
+                <button class="flex items-center gap-1 px-2.5 py-1 bg-primary/10 text-primary rounded-lg text-xs font-bold hover:bg-primary hover:text-white transition-all">
+                  <span class="material-symbols-outlined text-[14px]">refresh</span>
+                  Regenerate
+                </button>
+              </div>
+            </div>
+            <div class="bg-slate-50 border border-slate-100 rounded-xl p-5 focus-within:border-primary/30 focus-within:ring-2 focus-within:ring-primary/10 transition-all">
+              <div id="sr-session-desc" class="prose prose-slate max-w-none text-on-surface text-sm">
+                <h4 class="text-title-lg font-bold mb-4">1. The Hook: Digital Shadow (15 mins)</h4>
+                <p class="mb-4">Begin by asking students to search for a product they recently looked at. Discuss how
+                  quickly relevant ads appear. Use the "Digital Shadow" metaphor to explain data accumulation.</p>
+                <div class="bg-slate-50 border-l-4 border-primary p-4 my-6 rounded-r-lg">
+                  <p class="font-bold text-[14px] text-primary-container mb-1">Discussion Prompt:</p>
+                  <p class="italic text-slate-700">"If you could see all the data a brand knows about you right now,
+                    what would surprise you most? Your location? Your mood? Your budget?"</p>
+                </div>
+                <h4 class="text-title-lg font-bold mb-4">2. Deconstruction Lab (40 mins)</h4>
+                <ol class="list-decimal pl-5 space-y-4 text-slate-700">
+                  <li>Divide students into groups of three.</li>
+                  <li>Assign each group a "Viral Brand" case study.</li>
+                  <li><strong>Task:</strong> Identify the specific emotional trigger used in the ad (Fear of Missing Out,
+                    Social Proof, or Scarcity).</li>
+                  <li>Map the user journey from "Ad View" to "Data Point Creation".</li>
+                </ol>
+                <h4 class="text-title-lg font-bold mt-8 mb-4">3. Reflection &amp; Synthesis (25 mins)</h4>
+                <p>Groups present their findings. Introduce the "Ethical Filter" checklist for students to use in
+                  upcoming sessions.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Generated Materials -->
+          <div class="mb-8">
+            <label class="block text-[10px] font-bold uppercase tracking-widest text-primary mb-4">Generated Materials</label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+
+              <!-- Lesson Plan -->
+              <div class="bg-surface-container-lowest border border-slate-100 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="flex justify-between items-start mb-3">
+                  <span class="material-symbols-outlined text-violet-600 bg-violet-50 p-1.5 rounded-lg text-[20px]">description</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-teal-100 text-teal-700">Ready</span>
+                </div>
+                <p class="font-bold text-sm text-on-surface mb-1">Lesson Plan</p>
+                <p class="text-[11px] text-slate-400 mb-3 flex-1">Teacher guide with timings &amp; facilitation notes</p>
+                <div class="flex items-center gap-1.5">
+                  <button class="flex-1 text-[11px] font-bold py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">Preview</button>
+                  <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors">
+                    <span class="material-symbols-outlined text-[17px]">download</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Session PPT -->
+              <div class="bg-surface-container-lowest border border-slate-100 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="flex justify-between items-start mb-3">
+                  <span class="material-symbols-outlined text-orange-500 bg-orange-50 p-1.5 rounded-lg text-[20px]">slideshow</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-100 text-amber-700">Pending</span>
+                </div>
+                <p class="font-bold text-sm text-on-surface mb-1">Session Slides</p>
+                <p class="text-[11px] text-slate-400 mb-3 flex-1">Classroom deck with discussion prompts</p>
+                <button class="w-full text-[11px] font-bold py-1.5 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors shadow-sm shadow-primary/20">
+                  Generate Now
+                </button>
+              </div>
+
+              <!-- Worksheet -->
+              <div class="bg-surface-container-lowest border border-slate-100 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="flex justify-between items-start mb-3">
+                  <span class="material-symbols-outlined text-blue-500 bg-blue-50 p-1.5 rounded-lg text-[20px]">edit_note</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-teal-100 text-teal-700">Ready</span>
+                </div>
+                <p class="font-bold text-sm text-on-surface mb-1">Student Worksheet</p>
+                <p class="text-[11px] text-slate-400 mb-3 flex-1">PDF handout with activities &amp; reflection</p>
+                <div class="flex items-center gap-1.5">
+                  <button class="flex-1 text-[11px] font-bold py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">Preview</button>
+                  <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors">
+                    <span class="material-symbols-outlined text-[17px]">download</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </main>
+  <!-- Bottom Action Bar -->
+  <footer class="sticky bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-200/70 z-50 shadow-[0_-4px_20px_rgba(21,28,39,0.05)]">
+    <div class="max-w-screen-2xl mx-auto flex justify-between items-center px-14 py-3.5">
+
+      <!-- Left: Session Navigation -->
+      <div class="flex items-center gap-5">
+        <div class="flex items-center gap-2">
+          <button class="p-2 text-slate-300 rounded-full cursor-not-allowed" disabled>
+            <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+          </button>
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block">Previous</span>
+            <span id="sr-prev-name" class="text-xs font-semibold text-slate-300">—</span>
+          </div>
+        </div>
+
+        <div class="h-7 w-px bg-slate-200"></div>
+
+        <div class="text-center">
+          <span id="sr-counter" class="block text-[10px] font-bold uppercase tracking-widest text-primary mb-1">Session 1 of 18</span>
+          <div class="flex gap-0.5">
+            <span class="w-5 h-1 rounded-full bg-primary"></span>
+            <span class="w-1.5 h-1 rounded-full bg-slate-200"></span>
+            <span class="w-1.5 h-1 rounded-full bg-slate-200"></span>
+            <span class="w-1.5 h-1 rounded-full bg-slate-200"></span>
+            <span class="w-1.5 h-1 rounded-full bg-slate-200"></span>
+            <span class="w-1.5 h-1 rounded-full bg-slate-200"></span>
+          </div>
+        </div>
+
+        <div class="h-7 w-px bg-slate-200"></div>
+
+        <div class="flex items-center gap-2 group cursor-pointer">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block">Next Up</span>
+            <span id="sr-next-name" class="text-xs font-semibold text-on-surface group-hover:text-primary transition-colors">Understanding the Challenge</span>
+          </div>
+          <button class="p-2 text-primary hover:bg-primary/10 rounded-full transition-colors">
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Action Buttons -->
+      <div class="flex items-center gap-3">
+        <button class="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold text-sm hover:bg-slate-50 active:scale-95 transition-all">
+          Save Draft
+        </button>
+        <button class="px-5 py-2.5 rounded-xl bg-teal-600 text-white font-semibold text-sm hover:bg-teal-700 shadow-sm shadow-teal-600/20 active:scale-95 transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[17px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          Approve Session
+        </button>
+        <button class="px-5 py-2.5 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary/90 shadow-sm shadow-primary/20 active:scale-95 transition-all flex items-center gap-1.5">
+          Approve &amp; Next
+          <span class="material-symbols-outlined text-[17px]">keyboard_double_arrow_right</span>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+<script>
+const KB = {
+  1: ["What will I be able to do? What will I need?", "Connecting with the world of jobs and careers", "Why is this relevant?"],
+  2: ["What will I need to know before I start? (Core knowledge)", "Meet an Expert", "What do I have to do?", "Share what we know with others", "How do I keep myself and others safe?"],
+  3: ["What problem around me do I want to solve?", "Identify User / Idea / Problem / Business", "Understanding the context better and the user", "Identify USP, idea elements and user study"],
+  4: ["What are the criteria for a good solution?", "Further details of your idea", "Making your idea", "Upgrading your idea with tech / other applications"],
+  5: ["Feedback from peers and users", "Researching on how to improve idea", "Applying contemporary knowledge to upgrade", "Consequences and ethics"],
+  6: ["What did I learn from others, and how did I use it?", "What did I do, and how long did it take?", "Reflecting on your interests and tasks", "What else can I do? Presenting to others"]
+};
+
+const SESSIONS = {
+  1:  { name:"Project Launch & Context Exploration",    week:1, phase:"Explore", color:"#0D9488", period:"Block Period 1", challenge:1,   sp:"SP13 · Global Citizenship",          msp:"MSP13.C1", compDesc:"Recognises similarities and differences across cultures and communities with respect and openness.", generic:"Introduce the project theme through a real-world problem or scenario. Students connect with the topic personally and explore why it matters.",                                weeklyObj:"By the end of Week 1, students will understand how marketing influences people and design ethical marketing ideas for real-world products.", desc:`<h4 class="font-bold mb-3">1. Hook: Trust in Ads (15 mins)</h4><p class="mb-4">Prompt: "What made you trust or distrust the last ad you saw?" Students share examples from Instagram, YouTube, or gaming apps.</p><h4 class="font-bold mb-3">2. Stakeholder Analysis (25 mins)</h4><p class="mb-4">Who is affected? Map consumers, parents, companies, regulators. Introduce advertising standards and influencer disclosure rules in India.</p><h4 class="font-bold mb-3">3. Cross-Cultural Ad Analysis (25 mins)</h4><p class="mb-4">Students reflect on ads from different communities and languages. Do all communities view ads the same way?</p><h4 class="font-bold mb-3">4. Reflection (15 mins)</h4><p>Why are marketing ethics needed? Who is it affecting? Why should we care as consumers?</p>` },
+  2:  { name:"Understanding the Challenge",             week:1, phase:"Explore", color:"#0D9488", period:"Block Period 2", challenge:2,   sp:"SP14 · Future of Work & Career",      msp:"MSP14.C2", compDesc:"Connects personal strengths and interests to possible roles and future opportunities.", generic:"Students unpack the project question, identify key ideas, explore examples, and begin identifying what they will need to learn.",                                              weeklyObj:"By the end of Week 1, students will understand how marketing influences people and design ethical marketing ideas for real-world products.", desc:`<h4 class="font-bold mb-3">1. Unpacking the Challenge (20 mins)</h4><p class="mb-4">What is marketing? What makes it smart? What makes it ethical? Students break down the project question together.</p><h4 class="font-bold mb-3">2. Case Study (25 mins)</h4><p class="mb-4">Two real campaigns: What worked? What failed? What would you change?</p><h4 class="font-bold mb-3">3. Role Exploration (20 mins)</h4><p class="mb-4">Digital marketer, content creator, brand strategist, policy maker. Which role interests you?</p><h4 class="font-bold mb-3">4. Align on Learning Needs (15 mins)</h4><p>How ads influence people; rules for advertising; designing campaigns; understanding audience.</p>` },
+  3:  { name:"Prior Knowledge & Curiosity Mapping",    week:1, phase:"Explore", color:"#0D9488", period:"Single Period", challenge:null, sp:"SP1 · Knowing Self",                   msp:"MSP1.C1",  compDesc:"Understands how relationships, roles, and environments influence identity and sense of self.", generic:"Students document what they already know, generate questions, and identify areas they want to explore further.",                                                          weeklyObj:"By the end of Week 1, students will understand how marketing influences people and design ethical marketing ideas for real-world products.", desc:`<h4 class="font-bold mb-3">1. Prior Knowledge (15 mins)</h4><p class="mb-4">Students list: What I know about marketing; What I know about ads online.</p><h4 class="font-bold mb-3">2. Identity as Consumer (15 mins)</h4><p class="mb-4">What kind of ads influence me? How do my friends/family influence my choices?</p><h4 class="font-bold mb-3">3. Question Generation (10 mins)</h4><p class="mb-4">Student questions: How do ads go viral? What rules exist? How do brands target people?</p><h4 class="font-bold mb-3">4. Goal Setting (10 mins)</h4><p>One thing I want to learn; one skill to improve; one challenge I might face.</p>` },
+  4:  { name:"Concept Exploration",                    week:2, phase:"Learn",   color:"#7C3AED", period:"Block Period 1", challenge:3,   sp:"SP5 · Sustainability Literacy (LL)",   msp:"MSP5.C1",  compDesc:"Analyses interconnected environmental and human systems and evaluates long-term consequences.", generic:"Introduce core concepts, tools, or systems needed for the project through demonstrations, discussion, or guided activities.",                                               weeklyObj:"By the end of Week 2, students will understand how data and digital tools are used in marketing and recognise the importance of ethical practices.", desc:`<h4 class="font-bold mb-3">1. Data-Driven Marketing (20 mins)</h4><p class="mb-4">How do brands decide what to show you? Target audience and segmentation. Basic data forms: tables and charts.</p><h4 class="font-bold mb-3">2. Digital Tools (25 mins)</h4><p class="mb-4">Canva for visuals, Google Sheets for data. Students identify patterns and create a visual insight.</p><h4 class="font-bold mb-3">3. Ethics of Data (15 mins)</h4><p>What data is okay to use? Privacy, manipulation, consent.</p>` },
+  5:  { name:"Case Study & Skill Practice",            week:2, phase:"Learn",   color:"#7C3AED", period:"Block Period 2", challenge:4,   sp:"SP2 · Building Self",                  msp:"MSP2.C1",  compDesc:"Identifies how emotions influence thoughts and behaviour and develops awareness of emotional responses.", generic:"Students explore real-world examples or complete guided tasks to apply concepts and practice key skills.",                                                             weeklyObj:"By the end of Week 2, students will understand how data and digital tools are used in marketing and recognise the importance of ethical practices.", desc:`<h4 class="font-bold mb-3">1. Expert Insight (15 mins)</h4><p class="mb-4">Short video of a digital marketer or influencer. What skills are needed? What challenges do experts face?</p><h4 class="font-bold mb-3">2. Case Analysis (30 mins)</h4><p class="mb-4">Case 1: Ethical campaign — transparent, inclusive. Case 2: Problematic — misleading, stereotyped. What would you change?</p><h4 class="font-bold mb-3">3. Skill Practice (35 mins)</h4><p>Modify a message — add disclosures, make it inclusive. What skill do I need to improve?</p>` },
+  6:  { name:"Knowledge Consolidation",               week:2, phase:"Learn",   color:"#7C3AED", period:"Single Period", challenge:null, sp:"SP14 · Future of Work & Career",      msp:"MSP14.C1", compDesc:"Demonstrates responsibility, persistence, and self-management in completing tasks and group commitments.", generic:"Students summarise key learnings and discuss how knowledge connects to the project challenge, then set personal and team goals.",                                      weeklyObj:"By the end of Week 2, students will understand how data and digital tools are used in marketing and recognise the importance of ethical practices.", desc:`<h4 class="font-bold mb-3">1. Mind Map (15 mins)</h4><p class="mb-4">Marketing basics / Ethics / Data use / Tools. Prompt: How will this help us design our campaign?</p><h4 class="font-bold mb-3">2. Gap Identification (10 mins)</h4><p class="mb-4">What do I know? What do I still need to learn?</p><h4 class="font-bold mb-3">3. Project Planning (15 mins)</h4><p>Roles: Designer / Researcher / Presenter / Ethics checker. Define task, timeline, and responsibilities.</p>` },
+  7:  { name:"Problem Exploration",                   week:3, phase:"Find",    color:"#D97706", period:"Block Period 1", challenge:5,   sp:"SP11 · Design Thinking",              msp:"MSP11.C1", compDesc:"Conducts user research, analyses data, and synthesises into a clear focused HMW problem statement.", generic:"Students investigate problems related to the project theme and analyse who is affected and why the issue matters.",                                                    weeklyObj:"By the end of Week 3, students will identify real-world problems, conduct user research, and define a clear HMW problem statement.", desc:`<h4 class="font-bold mb-3">1. Problem Brainstorm (15 mins)</h4><p class="mb-4">Issues: Misleading ads, overconsumption, poor targeting. Who is affected? Why does it matter?</p><h4 class="font-bold mb-3">2. Empathy Mapping (25 mins)</h4><p class="mb-4">Map what users say, think, feel, do. Builds user-centred thinking.</p><h4 class="font-bold mb-3">3. Draft HMW Statements (25 mins)</h4><p class="mb-4">"People like ___ face ___ because ___" → refine into How Might We questions.</p><h4 class="font-bold mb-3">4. Validate (15 mins)</h4><p>Is this problem real? Is it worth solving? Peer check.</p>` },
+  8:  { name:"User Research & Data Gathering",        week:3, phase:"Find",    color:"#D97706", period:"Block Period 2", challenge:6,   sp:"SP12 · Entrepreneurial Mindset",      msp:"MSP12.C1", compDesc:"Identifies unmet needs and validates whether the problem is real, relevant, and worth solving.", generic:"Students conduct interviews, surveys, or observations to understand user needs or contextual constraints.",                                                               weeklyObj:"By the end of Week 3, students will identify real-world problems, conduct user research, and define a clear HMW problem statement.", desc:`<h4 class="font-bold mb-3">1. Research Planning (15 mins)</h4><p class="mb-4">Who will we talk to? Students create 10 interview questions targeting real consumers and peers.</p><h4 class="font-bold mb-3">2. Data Collection (30 mins)</h4><p class="mb-4">Peer interviews or simulated conversations. Capture key responses and surprising insights.</p><h4 class="font-bold mb-3">3. Data Organisation (20 mins)</h4><p class="mb-4">Key responses, patterns, insights. Use tables and charts.</p><h4 class="font-bold mb-3">4. Source Credibility (15 mins)</h4><p>Bias in ads; sponsored vs real opinions; evaluating digital sources.</p>` },
+  9:  { name:"Insights & Problem Framing",            week:3, phase:"Find",    color:"#D97706", period:"Single Period", challenge:null, sp:"SP12 · Entrepreneurial Mindset",      msp:"MSP12.C1", compDesc:"Identifies unmet needs and validates whether the problem is real, relevant, and worth solving.", generic:"Students organise findings and define a clear problem statement they will attempt to solve.",                                                                           weeklyObj:"By the end of Week 3, students will identify real-world problems, conduct user research, and define a clear HMW problem statement.", desc:`<h4 class="font-bold mb-3">1. Insight Clustering (15 mins)</h4><p class="mb-4">Group findings into: Needs / Pain points / Behaviours.</p><h4 class="font-bold mb-3">2. Refine HMW (15 mins)</h4><p class="mb-4">Checklist: Is it specific? Is it user-focused? Is it solvable?</p><h4 class="font-bold mb-3">3. Feasibility Check (10 mins)</h4><p>What resources are needed? What constraints exist? Peer feedback session.</p>` },
+  10: { name:"Idea Generation Workshop",              week:4, phase:"Create",  color:"#E85D30", period:"Block Period 1", challenge:7,   sp:"SP11 · Design Thinking",              msp:"MSP11.C2", compDesc:"Applies divergent thinking techniques to generate imaginative feasible solutions based on critical criteria.", generic:"Students brainstorm possible solutions using structured ideation techniques and evaluate options based on feasibility, impact, and relevance.",                    weeklyObj:"By the end of Week 4, students will generate and evaluate solution ideas, develop prototypes, and incorporate ethical and social considerations.", desc:`<h4 class="font-bold mb-3">1. Success Criteria (15 mins)</h4><p class="mb-4">Ethical / Clear message / User-focused / Feasible / Creative.</p><h4 class="font-bold mb-3">2. Ideation Techniques (30 mins)</h4><p class="mb-4">Rapid brainstorming; "Worst possible idea" → flip; SCAMPER.</p><h4 class="font-bold mb-3">3. Evaluate Ideas (20 mins)</h4><p class="mb-4">Criteria matrix: Feasible / Ethical / Impact / Best Choice.</p><h4 class="font-bold mb-3">4. SDG Link (15 mins)</h4><p>Does your idea promote awareness and responsible behaviour?</p>` },
+  11: { name:"Prototype Development",                 week:4, phase:"Create",  color:"#E85D30", period:"Block Period 2", challenge:8,   sp:"SP17 · Emerging Tech [Add-On]",       msp:"MSP17.C1", compDesc:"Applies foundational design principles to create user-friendly solutions (colour theory, forms, ergonomics).", generic:"Teams begin building or designing a prototype of their solution using available tools and materials.",                                                              weeklyObj:"By the end of Week 4, students will generate and evaluate solution ideas, develop prototypes, and incorporate ethical and social considerations.", desc:`<h4 class="font-bold mb-3">1. Choose Format (10 mins)</h4><p class="mb-4">Poster / Video / Social media ad / Campaign storyboard.</p><h4 class="font-bold mb-3">2. Create Prototype (35 mins)</h4><p class="mb-4">Sketches, paper models, or digital drafts. Communicate the idea clearly.</p><h4 class="font-bold mb-3">3. Design Principles (15 mins)</h4><p class="mb-4">Clarity / Simplicity / Visual hierarchy / User-friendliness.</p><h4 class="font-bold mb-3">4. Peer Review (20 mins)</h4><p>What works? What is confusing? Is it ethical? Revise one major aspect.</p>` },
+  12: { name:"Design Documentation",                  week:4, phase:"Create",  color:"#E85D30", period:"Single Period", challenge:null, sp:"SP14 · Future of Work & Career",      msp:"MSP14.C3", compDesc:"Applies planning, organisation, and decision-making skills to coordinate with others and monitor personal progress.", generic:"Students record their design ideas, explain their approach, and plan the next steps in development.",                                                   weeklyObj:"By the end of Week 4, students will generate and evaluate solution ideas, develop prototypes, and incorporate ethical and social considerations.", desc:`<h4 class="font-bold mb-3">1. Portfolio Entry (15 mins)</h4><p class="mb-4">Record: Problem statement / Chosen idea / Why selected / Key features.</p><h4 class="font-bold mb-3">2. Reflection (15 mins)</h4><p class="mb-4">What worked? What was challenging? What would I improve?</p><h4 class="font-bold mb-3">3. Next Steps (10 mins)</h4><p>What to improve / What to complete / Who will do what.</p>` },
+  13: { name:"Prototype Testing",                     week:5, phase:"Improve", color:"#2563EB", period:"Block Period 1", challenge:9,   sp:"SP12 · Entrepreneurial Mindset",      msp:"MSP12.C2", compDesc:"Designs a simple venture model explaining how their idea creates and delivers value, justified by success criteria.", generic:"Students test their solutions and observe how effectively they address the identified problem and identify potential risks.",                                  weeklyObj:"By the end of Week 5, students will test solutions, refine based on feedback, and understand value creation and ethical risk.", desc:`<h4 class="font-bold mb-3">1. Testing Setup (15 mins)</h4><p class="mb-4">Checklist: Is the message clear? Is it ethical? Would users trust it?</p><h4 class="font-bold mb-3">2. User Testing (25 mins)</h4><p class="mb-4">Peer testing. Collect: Likes / Confusions / Suggestions.</p><h4 class="font-bold mb-3">3. Value & Feasibility (20 mins)</h4><p class="mb-4">What value does our idea create? Is it practical? Simple venture thinking.</p><h4 class="font-bold mb-3">4. Risk Identification (20 mins)</h4><p>Ethical risks (misleading, bias) and practical risks (cost, reach).</p>` },
+  14: { name:"Iteration & Improvement",               week:5, phase:"Improve", color:"#2563EB", period:"Block Period 2", challenge:10,  sp:"SP11 · Design Thinking",              msp:"MSP11.C3", compDesc:"Constructs a prototype, tests with users, gathers feedback, and makes at least one significant revision.", generic:"Teams analyse feedback, identify limitations, and refine their prototype to improve performance.",                                                                  weeklyObj:"By the end of Week 5, students will test solutions, refine based on feedback, and understand value creation and ethical risk.", desc:`<h4 class="font-bold mb-3">1. Feedback to Action (15 mins)</h4><p class="mb-4">"We need to improve…" statements. Prioritise changes.</p><h4 class="font-bold mb-3">2. Prototype Revision (35 mins)</h4><p class="mb-4">Redesign visuals / Improve messaging / Fix ethical concerns.</p><h4 class="font-bold mb-3">3. Resilience Reflection (30 mins)</h4><p>What was difficult? How did we handle it? Growth mindset through honest discussion.</p>` },
+  15: { name:"Impact & Responsibility Reflection",    week:5, phase:"Improve", color:"#2563EB", period:"Single Period", challenge:null, sp:"SP13 · Global Citizenship",          msp:"MSP13.C2", compDesc:"Demonstrates awareness of how actions affect others locally and globally, showing empathy and responsibility.", generic:"Students reflect on ethical considerations, sustainability, user experience, and possible consequences of their solution.",                                       weeklyObj:"By the end of Week 5, students will test solutions, refine based on feedback, and understand value creation and ethical risk.", desc:`<h4 class="font-bold mb-3">1. Ethical Reflection (15 mins)</h4><p class="mb-4">Could our campaign mislead anyone? Does it respect all users?</p><h4 class="font-bold mb-3">2. Impact Mapping (20 mins)</h4><p class="mb-4">Who benefits? Who might be harmed? Short-term vs long-term effects.</p><h4 class="font-bold mb-3">3. Personal Reflection (15 mins)</h4><p>What kind of creator do I want to be? How did my values influence my decisions?</p>` },
+  16: { name:"Preparing the Showcase",                week:6, phase:"Reflect", color:"#059669", period:"Block Period 1", challenge:11,  sp:"SP12 · Entrepreneurial Mindset",      msp:"MSP12.C2", compDesc:"Designs a comprehensive pitch and justifies the solution to stakeholders using evidence and feedback.", generic:"Students prepare presentations, demonstrations, or visual explanations of their solution and learning journey.",                                                     weeklyObj:"By the end of Week 6, students will present their ideas confidently, reflect on their learning journey, and connect experience to future careers.", desc:`<h4 class="font-bold mb-3">1. Pitch Structure (15 mins)</h4><p class="mb-4">Problem → Research → Idea → Impact → Ethics. What makes a presentation effective?</p><h4 class="font-bold mb-3">2. Pitch Planning (20 mins)</h4><p class="mb-4">Problem statement / User insights / Final solution / Improvements / Value created.</p><h4 class="font-bold mb-3">3. Visual Design (25 mins)</h4><p class="mb-4">Slides, posters, or demos. Clarity / Visual appeal / Audience engagement.</p><h4 class="font-bold mb-3">4. Practice & Refine (20 mins)</h4><p>Peer practice with feedback on clarity, confidence, and message.</p>` },
+  17: { name:"Project Presentation / Pitch",          week:6, phase:"Reflect", color:"#059669", period:"Block Period 2", challenge:12,  sp:"SP12 · Entrepreneurial Mindset",      msp:"MSP12.C4", compDesc:"Develops a comprehensive pitch and can present and justify their solution to stakeholders.", generic:"Students present their work to peers, teachers, or invited audiences and explain their design decisions and outcomes.",                                                    weeklyObj:"By the end of Week 6, students will present their ideas confidently, reflect on their learning journey, and connect experience to future careers.", desc:`<h4 class="font-bold mb-3">1. Team Presentations (30 mins)</h4><p class="mb-4">Problem / Solution / Key features / Ethical considerations / Impact.</p><h4 class="font-bold mb-3">2. Audience Q&A (20 mins)</h4><p class="mb-4">Why this idea? How is it ethical? What would you improve?</p><h4 class="font-bold mb-3">3. Peer Feedback (15 mins)</h4><p class="mb-4">One strong idea from another team; one learning gained.</p><h4 class="font-bold mb-3">4. Self-Reflection (15 mins)</h4><p>How did I feel presenting? What went well? What would I do differently?</p>` },
+  18: { name:"Reflection & Future Connections",       week:6, phase:"Reflect", color:"#059669", period:"Single Period", challenge:null, sp:"SP14 · Future of Work & Career",      msp:"MSP14.C2", compDesc:"Connects personal strengths, interests, and aspirations to possible roles and future opportunities.", generic:"Students reflect on what they learned, how ideas evolved, and how the experience connects to real-world problems and future opportunities.",                      weeklyObj:"By the end of Week 6, students will present their ideas confidently, reflect on their learning journey, and connect experience to future careers.", desc:`<h4 class="font-bold mb-3">1. Learning Reflection (15 mins)</h4><p class="mb-4">What did I learn from others? What personal feedback did I get?</p><h4 class="font-bold mb-3">2. Process Reflection (15 mins)</h4><p class="mb-4">What I did / Time taken / Challenges faced.</p><h4 class="font-bold mb-3">3. Future Connections (20 mins)</h4><p class="mb-4">What roles did I enjoy? What skills did I use? What careers do they open up?</p><h4 class="font-bold mb-3">4. Value & Responsibility (10 mins)</h4><p>How does effort create value? Was my solution fair and responsible?</p>` },
+};
+
+function updatePage(n) {
+  const s = SESSIONS[n];
+  if (!s) return;
+  document.getElementById('sr-breadcrumb-week').textContent = `Week ${s.week}: ${s.phase}`;
+  document.getElementById('sr-breadcrumb-session').textContent = `Session ${n}`;
+  document.getElementById('sr-session-h1').textContent = `Session ${n}: ${s.name}`;
+  document.getElementById('sr-period-badge').textContent = s.challenge ? `${s.period} · Challenge ${s.challenge}` : s.period;
+  document.getElementById('sr-week-badge').textContent = `Week ${s.week} — ${s.phase}`;
+  document.getElementById('sr-generic-template').textContent = s.generic;
+  document.getElementById('sr-kb-list').innerHTML = KB[s.week].map((q, i) =>
+    `<div class="flex gap-3 items-start"><span class="w-5 h-5 rounded-full bg-violet-100 text-primary flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5">${i+1}</span><p class="text-sm text-slate-700">${q}</p></div>`
+  ).join('');
+  const spTag = document.getElementById('sr-sp-tag');
+  spTag.innerHTML = `<span class="w-1.5 h-1.5 rounded-full" style="background:${s.color}"></span> ${s.sp}`;
+  spTag.style.cssText = `background-color:${s.color}1a; color:${s.color};`;
+  document.getElementById('sr-msp-tag').textContent = s.msp;
+  document.getElementById('sr-comp-desc').textContent = s.compDesc;
+  document.getElementById('sr-period-label').textContent = s.period;
+  document.getElementById('sr-weekly-objective').value = s.weeklyObj;
+  document.getElementById('sr-session-desc').innerHTML = s.desc;
+  document.getElementById('sr-counter').textContent = `Session ${n} of 18`;
+  const prev = SESSIONS[n - 1];
+  const next = SESSIONS[n + 1];
+  document.getElementById('sr-prev-name').textContent = prev ? prev.name : '—';
+  document.getElementById('sr-prev-name').className = prev ? 'text-xs font-semibold text-on-surface' : 'text-xs font-semibold text-slate-300';
+  document.getElementById('sr-next-name').textContent = next ? next.name : '—';
+}
+
+const urlParams = new URLSearchParams(window.location.search);
+updatePage(parseInt(urlParams.get('session')) || 1);
+</script>
+
+</body>
+
+</html>

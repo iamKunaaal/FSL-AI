@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>AI Generation Progress | Neorise FSL</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#f9f9ff",
+            "tertiary-container": "#b83b0e",
+            "on-surface-variant": "#4a4455",
+            "inverse-primary": "#d2bbff",
+            "surface-container-highest": "#dce2f3",
+            "secondary": "#006a61",
+            "secondary-fixed-dim": "#6bd8cb",
+            "surface": "#f9f9ff",
+            "on-primary-container": "#ede0ff",
+            "on-secondary-fixed-variant": "#005049",
+            "secondary-fixed": "#89f5e7",
+            "secondary-container": "#86f2e4",
+            "inverse-on-surface": "#ebf1ff",
+            "surface-tint": "#732ee4",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#ffb59f",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "inverse-surface": "#2a313d",
+            "on-secondary": "#ffffff",
+            "primary": "#630ed4",
+            "on-primary": "#ffffff",
+            "on-background": "#151c27",
+            "surface-container-high": "#e2e8f8",
+            "tertiary": "#922800",
+            "on-tertiary-container": "#ffded5",
+            "on-tertiary": "#ffffff",
+            "surface-dim": "#d3daea",
+            "on-secondary-fixed": "#00201d",
+            "surface-variant": "#dce2f3",
+            "on-tertiary-fixed-variant": "#852400",
+            "on-surface": "#151c27",
+            "surface-container": "#e7eefe",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#f0f3ff",
+            "on-primary-fixed-variant": "#5a00c6",
+            "background": "#f9f9ff",
+            "on-secondary-container": "#006f66",
+            "on-primary-fixed": "#25005a",
+            "tertiary-fixed": "#ffdbd0",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#3a0a00",
+            "outline-variant": "#ccc3d8",
+            "primary-fixed-dim": "#d2bbff",
+            "outline": "#7b7487",
+            "primary-container": "#7c3aed",
+            "primary-fixed": "#eaddff"
+          },
+          fontFamily: {
+            "headline": ["Inter", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "label": ["Inter", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    .ai-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+    .spin { animation: spin 1s linear infinite; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    /* ── Terminal ── */
+    #terminal-log { scrollbar-width: thin; scrollbar-color: #334155 transparent; }
+    #terminal-log::-webkit-scrollbar { width: 4px; }
+    #terminal-log::-webkit-scrollbar-track { background: transparent; }
+    #terminal-log::-webkit-scrollbar-thumb { background: #334155; border-radius: 2px; }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .cursor-blink { animation: blink 1s step-end infinite; }
+
+    @keyframes fadeSlideIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+    .log-line { animation: fadeSlideIn 0.15s ease-out both; }
+
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(400%); }
+    }
+    .scanline {
+      position: absolute; left: 0; right: 0; height: 40px;
+      background: linear-gradient(transparent, rgba(99,14,212,0.04), transparent);
+      animation: scanline 4s linear infinite;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+
+  <!-- TopNavBar -->
+  <header class="bg-white/80 backdrop-blur-xl sticky top-0 z-50 shadow-sm">
+    <div class="flex justify-between items-center w-full px-14 py-3 max-w-screen-2xl mx-auto">
+      <div class="flex items-center gap-8">
+        <a href="Screen-1.html" class="text-xl font-bold tracking-tighter text-violet-700">Neorise FSL</a>
+        <nav class="hidden md:flex items-center gap-6 font-sans text-sm font-medium tracking-tight">
+          <a class="text-slate-600 hover:text-slate-900 transition-colors" href="Screen-1.html">Dashboard</a>
+          <a class="text-violet-700 font-semibold border-b-2 border-violet-600 pb-1" href="Screen-1.html">Projects</a>
+          <a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">Framework</a>
+          <a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">Settings</a>
+        </nav>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="flex items-center bg-slate-100 rounded-lg px-3 py-1.5 gap-2">
+          <span class="material-symbols-outlined text-slate-500 text-sm">search</span>
+          <input class="bg-transparent border-none focus:ring-0 text-sm w-48" placeholder="Search curriculum..."
+            type="text">
+        </div>
+        <button class="p-2 hover:bg-slate-100 rounded-lg transition-colors">
+          <span class="material-symbols-outlined text-slate-600">notifications</span>
+        </button>
+        <button class="p-2 hover:bg-slate-100 rounded-lg transition-colors">
+          <span class="material-symbols-outlined text-slate-600">help</span>
+        </button>
+        <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+          <div class="text-right hidden sm:block">
+            <p class="text-xs font-semibold text-on-surface">Kunal Darji</p>
+            <p class="text-[10px] text-slate-500">Admin</p>
+          </div>
+          <div
+            class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center text-xs font-bold"
+            title="Kunal Darji, Admin">KD</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-screen-2xl mx-auto w-full px-14 py-10 flex flex-col gap-10">
+
+    <!-- Back link -->
+    <div class="flex justify-start">
+      <a href="Screen-1.html"
+        class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface transition-colors rounded-full px-4 py-2 hover:bg-surface-container-low -ml-4">
+        <span class="material-symbols-outlined text-xl">arrow_back</span>
+        <span class="font-medium text-sm tracking-wide">Return to Projects</span>
+      </a>
+    </div>
+
+    <!-- Header Section -->
+    <header class="flex flex-col lg:flex-row justify-between gap-8 items-start">
+      <div class="flex flex-col gap-4 max-w-2xl">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary text-4xl ai-pulse">auto_awesome</span>
+          <h1 class="text-4xl font-bold tracking-tight text-on-surface">Generating Curriculum</h1>
+        </div>
+        <p class="text-lg text-on-surface-variant leading-relaxed">
+          AI is creating 18 session descriptions for 'Smart Ethical Marketing in Future Digital Economy'
+        </p>
+        <div class="flex flex-wrap items-center gap-3 mt-2">
+          <span
+            class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface text-sm font-medium tracking-wide">Grade
+            8</span>
+          <span
+            class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface text-sm font-medium tracking-wide">Human
+            Services</span>
+          <span
+            class="px-3 py-1 rounded-full bg-surface-container-low text-primary text-sm font-medium tracking-wide flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">memory</span>
+            Model: Claude Sonnet 4
+          </span>
+        </div>
+      </div>
+      <!-- Cost Tracker Card -->
+      <div
+        class="flex gap-4 p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/15 shadow-sm min-w-[320px]">
+        <div class="flex-1 flex flex-col gap-1 border-r border-outline-variant/15 pr-4">
+          <span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Tokens Used</span>
+          <span class="text-2xl font-bold text-on-surface">824,512</span>
+        </div>
+        <div class="flex-1 flex flex-col gap-1 pl-4">
+          <span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Est. Cost</span>
+          <span class="text-2xl font-bold text-on-surface">$12.00</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Overall Progress Section -->
+    <section
+      class="flex flex-col gap-6 bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/15 shadow-sm">
+      <!-- Phase Stepper -->
+      <div class="flex items-center gap-4 mb-4">
+        <div class="flex items-center gap-3 flex-1">
+          <div
+            class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm shadow-[0_0_12px_rgba(99,14,212,0.3)] ai-pulse">
+            1</div>
+          <span class="font-semibold text-on-surface text-sm">Phase 1: Session Descriptions</span>
+        </div>
+        <div class="h-px bg-outline-variant/30 flex-1 mx-4"></div>
+        <div class="flex items-center gap-3 flex-1 opacity-50">
+          <div
+            class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold text-sm border border-outline-variant/30">
+            2</div>
+          <span class="font-medium text-on-surface-variant text-sm">Phase 2: Teaching Materials</span>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3">
+        <div class="flex justify-between items-end">
+          <h2 class="text-xl font-semibold text-on-surface">8 of 18 sessions completed</h2>
+          <span class="text-3xl font-bold text-primary">44%</span>
+        </div>
+        <!-- Progress Bar -->
+        <div class="w-full h-4 bg-surface-container-low rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-primary to-primary-container rounded-full" style="width: 44%;">
+          </div>
+        </div>
+        <p class="text-sm text-on-surface-variant font-medium flex items-center gap-1.5 mt-1">
+          <span class="material-symbols-outlined text-sm">schedule</span>
+          Estimated 4 minutes remaining
+        </p>
+      </div>
+    </section>
+
+    <!-- Week-by-Week Progress Grid -->
+    <section class="flex flex-col gap-4">
+      <h3 class="text-lg font-semibold text-on-surface mb-2">Detailed Progress</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <!-- Week 1 — Done -->
+        <div class="flex flex-col gap-3 bg-surface-container-low rounded-xl p-4">
+          <h4 class="font-bold text-on-surface text-sm uppercase tracking-wide">Week 1</h4>
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center gap-2 text-secondary text-sm font-medium">
+              <span class="material-symbols-outlined text-base">check_circle</span> Session 1
+            </div>
+            <div class="flex items-center gap-2 text-secondary text-sm font-medium">
+              <span class="material-symbols-outlined text-base">check_circle</span> Session 2
+            </div>
+            <div class="flex items-center gap-2 text-secondary text-sm font-medium">
+              <span class="material-symbols-outlined text-base">check_circle</span> Session 3
+            </div>
+          </div>
+        </div>
+        <!-- Week 2 — Done -->
+        <div class="flex flex-col gap-3 bg-surface-container-low rounded-xl p-4">
+          <h4 class="font-bold text-on-surface text-sm uppercase tracking-wide">Week 2</h4>
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center gap-2 text-secondary text-sm font-medium">
+              <span class="material-symbols-outlined text-base">check_circle</span> Session 4
+            </div>
+            <div class="flex items-center gap-2 text-secondary text-sm font-medium">
+              <span class="material-symbols-outlined text-base">check_circle</span> Session 5
+            </div>
+            <div class="flex items-center gap-2 text-secondary text-sm font-medium">
+              <span class="material-symbols-outlined text-base">check_circle</span> Session 6
+            </div>
+          </div>
+        </div>
+        <!-- Week 3 — In Progress -->
+        <div
+          class="flex flex-col gap-3 bg-surface-container-lowest rounded-xl p-4 border-2 border-primary/20 shadow-[0_0_15px_rgba(99,14,212,0.05)] relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-container"></div>
+          <h4 class="font-bold text-on-surface text-sm uppercase tracking-wide">Week 3</h4>
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center gap-2 text-secondary text-sm font-medium">
+              <span class="material-symbols-outlined text-base">check_circle</span> Session 7
+            </div>
+            <div
+              class="flex items-center gap-2 text-tertiary-container text-sm font-medium bg-tertiary-fixed/30 p-1.5 rounded-md -mx-1.5">
+              <span class="material-symbols-outlined text-base spin">sync</span>
+              <span class="truncate">Generating...</span>
+            </div>
+            <div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium opacity-50">
+              <span class="material-symbols-outlined text-base">hourglass_empty</span> Session 9
+            </div>
+          </div>
+        </div>
+        <!-- Week 4 — Pending -->
+        <div class="flex flex-col gap-3 bg-surface-container-low/50 rounded-xl p-4 opacity-70">
+          <h4 class="font-bold text-on-surface-variant text-sm uppercase tracking-wide">Week 4</h4>
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium">
+              <span class="material-symbols-outlined text-base">hourglass_empty</span> Session 10
+            </div>
+            <div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium">
+              <span class="material-symbols-outlined text-base">hourglass_empty</span> Session 11
+            </div>
+            <div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium">
+              <span class="material-symbols-outlined text-base">hourglass_empty</span> Session 12
+            </div>
+          </div>
+        </div>
+        <!-- Week 5 — Pending -->
+        <div class="flex flex-col gap-3 bg-surface-container-low/50 rounded-xl p-4 opacity-70">
+          <h4 class="font-bold text-on-surface-variant text-sm uppercase tracking-wide">Week 5</h4>
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium">
+              <span class="material-symbols-outlined text-base">hourglass_empty</span> Session 13
+            </div>
+            <div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium">
+              <span class="material-symbols-outlined text-base">hourglass_empty</span> Session 14
+            </div>
+            <div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium">
+              <span class="material-symbols-outlined text-base">hourglass_empty</span> Session 15
+            </div>
+          </div>
+        </div>
+        <!-- Week 6 — Pending -->
+        <div class="flex flex-col gap-3 bg-surface-container-low/50 rounded-xl p-4 opacity-70">
+          <h4 class="font-bold text-on-surface-variant text-sm uppercase tracking-wide">Week 6</h4>
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium">
+              <span class="material-symbols-outlined text-base">hourglass_empty</span> Session 16
+            </div>
+            <div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium">
+              <span class="material-symbols-outlined text-base">hourglass_empty</span> Session 17
+            </div>
+            <div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium">
+              <span class="material-symbols-outlined text-base">hourglass_empty</span> Session 18
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Log Terminal -->
+    <section class="rounded-xl overflow-hidden shadow-2xl" style="border:1px solid #1e2d40;">
+      <!-- Window Chrome -->
+      <div class="flex items-center justify-between px-4 py-2.5" style="background:#161b22; border-bottom:1px solid #1e2d40;">
+        <div class="flex items-center gap-1.5">
+          <span class="w-3 h-3 rounded-full" style="background:#ff5f57;"></span>
+          <span class="w-3 h-3 rounded-full" style="background:#febc2e;"></span>
+          <span class="w-3 h-3 rounded-full" style="background:#28c840;"></span>
+        </div>
+        <span class="text-xs font-mono tracking-widest" style="color:#8b949e;">neorise-fsl · generation-worker · pid 4821</span>
+        <div class="flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full ai-pulse" style="background:#22c55e;"></span>
+          <span class="text-[10px] font-mono uppercase tracking-widest" style="color:#22c55e;">LIVE</span>
+        </div>
+      </div>
+
+      <!-- Top stats bar -->
+      <div class="flex items-center gap-6 px-5 py-2 font-mono text-[10px]" style="background:#0d1117; border-bottom:1px solid #1e2d40;">
+        <span style="color:#8b949e;">MODEL <span style="color:#c9d1d9;">claude-sonnet-4</span></span>
+        <span style="color:#8b949e;">TEMP <span style="color:#c9d1d9;">0.72</span></span>
+        <span style="color:#8b949e;">CTX <span style="color:#c9d1d9;">200k</span></span>
+        <span style="color:#8b949e;">SESSIONS <span style="color:#a5f3fc;">8 / 18</span></span>
+        <span style="color:#8b949e;">TOKENS <span style="color:#fbbf24;">824,512</span></span>
+        <span style="color:#8b949e;">LATENCY <span style="color:#86efac;">892ms avg</span></span>
+      </div>
+
+      <!-- Log Body -->
+      <div class="relative" style="background:#0d1117;">
+        <div class="scanline"></div>
+        <div id="terminal-log" class="px-5 py-4 font-mono text-xs leading-[1.7] overflow-y-auto" style="height:320px; background:#0d1117; color:#c9d1d9;"></div>
+      </div>
+
+      <!-- Thinking footer — inside terminal -->
+      <div class="flex items-center gap-3 px-5 py-3 font-mono text-xs relative overflow-hidden" style="background:#0f1923; border-top:1px solid #2d3748;">
+        <!-- ambient orange glow -->
+        <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 10% 50%, rgba(249,115,22,0.08) 0%, transparent 55%);"></div>
+
+        <!-- blinking stars -->
+        <div class="flex items-center gap-1 shrink-0 relative">
+          <span style="color:#f97316; animation:blink 1.1s step-end infinite; font-size:14px;">✦</span>
+          <span style="color:#fb923c; animation:blink 0.7s step-end infinite 0.3s; font-size:11px;">✦</span>
+          <span style="color:#fdba74; animation:blink 1.4s step-end infinite 0.6s; font-size:9px;">✦</span>
+        </div>
+
+        <!-- cycling word + context -->
+        <div class="flex items-baseline gap-2 min-w-0 relative">
+          <span id="thinking-word" class="font-bold tracking-tight" style="color:#f97316; font-size:13px;"></span>
+          <span id="thinking-context" class="truncate" style="color:#4b5563; font-size:11px;"></span>
+        </div>
+
+        <!-- waveform + streaming label -->
+        <div class="ml-auto flex items-center gap-2.5 shrink-0">
+          <div class="flex gap-px items-end" style="height:14px;">
+            <span class="w-0.5 rounded-full" style="background:#f97316; height:40%; animation:barPulse 0.9s ease-in-out infinite 0.0s;"></span>
+            <span class="w-0.5 rounded-full" style="background:#f97316; height:70%; animation:barPulse 0.9s ease-in-out infinite 0.15s;"></span>
+            <span class="w-0.5 rounded-full" style="background:#f97316; height:100%; animation:barPulse 0.9s ease-in-out infinite 0.3s;"></span>
+            <span class="w-0.5 rounded-full" style="background:#f97316; height:55%; animation:barPulse 0.9s ease-in-out infinite 0.45s;"></span>
+            <span class="w-0.5 rounded-full" style="background:#f97316; height:80%; animation:barPulse 0.9s ease-in-out infinite 0.6s;"></span>
+            <span class="w-0.5 rounded-full" style="background:#f97316; height:35%; animation:barPulse 0.9s ease-in-out infinite 0.75s;"></span>
+          </div>
+          <span class="uppercase tracking-widest text-[10px]" style="color:#f97316; animation:blink 2s step-end infinite;">streaming</span>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const LOG = [
+        { t:"10:42:01.204", lvl:"INIT",    c:"#8b949e", msg:"Bootstrapping FSL generation pipeline — 18 sessions · 6 phases · 1 project" },
+        { t:"10:42:01.891", lvl:"INIT",    c:"#8b949e", msg:"Loading fsl_framework.py → sub_pillars[24] competency_nodes[47] kaushal_bodh_weeks[6]" },
+        { t:"10:42:02.113", lvl:"RESOLVE", c:"#22d3ee", msg:"Hydrating project context: topic=\"Smart Ethical Marketing\" grade=8 subject=\"Human Services\"" },
+        { t:"10:42:02.441", lvl:"RESOLVE", c:"#22d3ee", msg:"Competency graph resolved → 47 MSP nodes · 24 SP nodes · 6 weekly objectives loaded" },
+        { t:"10:42:02.887", lvl:"INJECT",  c:"#a78bfa", msg:"Building prompt: Session 1 · SP13.C1 + MSP1.C1 · Kaushal Bodh Week 1 [4 questions injected]" },
+        { t:"10:42:03.112", lvl:"STREAM",  c:"#60a5fa", msg:"← Token stream initiated · claude-sonnet-4 · temperature=0.72 · max_tokens=2048" },
+        { t:"10:42:03.988", lvl:"TOKEN",   c:"#fbbf24", msg:"chunk[1/5] · 412 tok · p50_lat=847ms · cumulative: 412" },
+        { t:"10:42:04.921", lvl:"TOKEN",   c:"#fbbf24", msg:"chunk[2/5] · 389 tok · p50_lat=923ms · cumulative: 801" },
+        { t:"10:42:05.844", lvl:"TOKEN",   c:"#fbbf24", msg:"chunk[3/5] · 401 tok · p50_lat=798ms · cumulative: 1,202" },
+        { t:"10:42:06.602", lvl:"TOKEN",   c:"#fbbf24", msg:"chunk[4/5] · 398 tok · p50_lat=834ms · cumulative: 1,600" },
+        { t:"10:42:06.774", lvl:"SAVE",    c:"#4ade80", msg:"Session 1 → db[sessions] id=4f2a91bc · quality_score=0.94 · validated ✓ · total: 1,812 tok" },
+        { t:"10:42:07.003", lvl:"INJECT",  c:"#a78bfa", msg:"Building prompt: Session 2 · SP14.C2 + MSP14.C2 · Challenge #2 · context_window_used=12.4%" },
+        { t:"10:42:07.441", lvl:"STREAM",  c:"#60a5fa", msg:"← Token stream initiated · delta_latency=+76ms from baseline" },
+        { t:"10:42:09.102", lvl:"SAVE",    c:"#4ade80", msg:"Session 2 → db[sessions] id=7b3c44ef · quality_score=0.91 · validated ✓ · total: 1,619 tok" },
+        { t:"10:42:09.334", lvl:"INJECT",  c:"#a78bfa", msg:"Building prompt: Session 3 · SP1.C1 · period_type=reflection · no challenge_number" },
+        { t:"10:42:11.221", lvl:"SAVE",    c:"#4ade80", msg:"Session 3 → db[sessions] id=2e8f77aa · quality_score=0.89 · validated ✓ · total: 1,408 tok" },
+        { t:"10:42:11.445", lvl:"RESOLVE", c:"#22d3ee", msg:"Week 2 context loaded · phase=Learn · resolving SP5 + SP15 + SP16 competency nodes" },
+        { t:"10:42:11.782", lvl:"INJECT",  c:"#a78bfa", msg:"Building prompt: Session 4 · SP5.C1 + MSP5.C1 · Challenge #3 · MM_track=[SP15,SP16]" },
+        { t:"10:42:13.889", lvl:"SAVE",    c:"#4ade80", msg:"Session 4 → db[sessions] id=9c1d50bb · quality_score=0.96 · validated ✓ · total: 1,721 tok" },
+        { t:"10:42:16.002", lvl:"SAVE",    c:"#4ade80", msg:"Session 5 → db[sessions] id=6a3e82cd · quality_score=0.93 · validated ✓ · total: 1,598 tok" },
+        { t:"10:42:18.119", lvl:"SAVE",    c:"#4ade80", msg:"Session 6 → db[sessions] id=1f5b93de · quality_score=0.88 · validated ✓ · total: 1,301 tok" },
+        { t:"10:42:18.334", lvl:"RESOLVE", c:"#22d3ee", msg:"Week 3 context loaded · phase=Find · resolving SP11 + SP4 + SP12 + SP13 competency nodes" },
+        { t:"10:42:18.771", lvl:"INJECT",  c:"#a78bfa", msg:"Building prompt: Session 7 · SP11.C1 + MSP4.C2 · Challenge #5 · HMW_framework=enabled" },
+        { t:"10:42:20.774", lvl:"SAVE",    c:"#4ade80", msg:"Session 7 → db[sessions] id=8d2c04ef · quality_score=0.97 · validated ✓ · total: 1,884 tok" },
+        { t:"10:42:21.003", lvl:"INJECT",  c:"#a78bfa", msg:"Building prompt: Session 8 · SP12.C1 + MSP12.C1 · Challenge #6 · user_research_mode=true" },
+        { t:"10:42:21.220", lvl:"STREAM",  c:"#60a5fa", msg:"← Token stream initiated · \"User Research & Data Gathering\" · entropy_sampling=active" },
+        { t:"10:42:22.089", lvl:"TOKEN",   c:"#fbbf24", msg:"chunk[1/?] · 298 tok · p50_lat=869ms · cumulative: 298 · generating..." },
+      ];
+
+      const typeColors = {
+        INIT: "#8b949e", RESOLVE: "#22d3ee", INJECT: "#a78bfa",
+        STREAM: "#60a5fa", TOKEN: "#fbbf24", SAVE: "#4ade80",
+        WARN: "#fb923c", ERROR: "#f87171"
+      };
+
+      const container = document.getElementById('terminal-log');
+      let i = 0;
+
+      function pad(s) { return s.padEnd(7); }
+
+      function addLine(entry, cb) {
+        const line = document.createElement('div');
+        line.className = 'log-line flex gap-0';
+        line.style.animationDelay = '0ms';
+
+        const ts   = document.createElement('span');
+        ts.style.cssText = 'color:#3d4f61; user-select:none; margin-right:12px; flex-shrink:0;';
+        ts.textContent = entry.t;
+
+        const lvl  = document.createElement('span');
+        lvl.style.cssText = `color:${typeColors[entry.lvl]}; font-weight:700; margin-right:10px; flex-shrink:0; width:52px;`;
+        lvl.textContent = entry.lvl;
+
+        const msg  = document.createElement('span');
+        msg.style.color = '#c9d1d9';
+
+        line.appendChild(ts);
+        line.appendChild(lvl);
+        line.appendChild(msg);
+        container.appendChild(line);
+
+        // typewriter
+        let ci = 0;
+        const speed = entry.lvl === 'TOKEN' ? 8 : 4;
+        function type() {
+          if (ci < entry.msg.length) {
+            msg.textContent += entry.msg[ci++];
+            container.scrollTop = container.scrollHeight;
+            setTimeout(type, speed);
+          } else {
+            container.scrollTop = container.scrollHeight;
+            if (cb) cb();
+          }
+        }
+        type();
+      }
+
+      function next() {
+        if (i >= LOG.length) {
+          // blinking cursor on last line
+          const cur = document.createElement('span');
+          cur.className = 'cursor-blink';
+          cur.style.color = '#a78bfa';
+          cur.textContent = ' ▊';
+          container.lastChild.appendChild(cur);
+          return;
+        }
+        const delay = i === 0 ? 400 : (LOG[i].lvl === 'TOKEN' ? 900 : 600);
+        setTimeout(() => { addLine(LOG[i++], next); }, delay);
+      }
+
+      next();
+
+      // ── Thinking word cycler ──────────────────────────────
+      const THINKING_STATES = [
+        { word: "Thinking",      ctx: "· orchestrating pedagogical flow across 18 sessions" },
+        { word: "Synthesising",  ctx: "· weaving competency nodes into session narrative" },
+        { word: "Contemplating", ctx: "· resolving MSP13.C1 → semantic embedding space" },
+        { word: "Mesmerising",   ctx: "· distilling curriculum essence from framework graph" },
+        { word: "Crystallising", ctx: "· shaping Challenge #6 into coherent learning arc" },
+        { word: "Orchestrating", ctx: "· aligning Kaushal Bodh questions with session intent" },
+        { word: "Hallucinating", ctx: "· \u2717 suppressed · grounding to fsl_framework.py" },
+        { word: "Distilling",    ctx: "· compressing 47 competency nodes \u2192 3 focal points" },
+        { word: "Reasoning",     ctx: "· mapping user research \u2192 empathy \u2192 HMW statement" },
+        { word: "Weaving",       ctx: "· threading SP12.C1 across real-world problem context" },
+        { word: "Introspecting", ctx: "· validating output coherence · quality_threshold=0.88" },
+        { word: "Harmonising",   ctx: "· synchronising Week 3 objectives with session flow" },
+      ];
+      const wordEl = document.getElementById('thinking-word');
+      const ctxEl  = document.getElementById('thinking-context');
+      let wi = 0;
+      function cycleWord() {
+        const s = THINKING_STATES[wi++ % THINKING_STATES.length];
+        wordEl.style.transition = 'opacity 0.2s';
+        ctxEl.style.transition  = 'opacity 0.2s';
+        wordEl.style.opacity = '0'; ctxEl.style.opacity = '0';
+        setTimeout(() => {
+          wordEl.textContent = s.word + '...';
+          ctxEl.textContent  = s.ctx;
+          wordEl.style.opacity = '1'; ctxEl.style.opacity = '1';
+        }, 220);
+      }
+      cycleWord();
+      setInterval(cycleWord, 2800);
+    </script>
+
+    <style>
+      @keyframes barPulse {
+        0%,100% { opacity:0.3; transform:scaleY(0.6); }
+        50%      { opacity:1;   transform:scaleY(1);   }
+      }
+    </style>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-wrap items-center justify-end gap-4 pb-10">
+      <button
+        class="px-6 py-2.5 rounded-lg border border-error text-error font-medium hover:bg-error-container/30 transition-colors text-sm">
+        Cancel Generation
+      </button>
+      <button
+        class="px-6 py-2.5 rounded-lg border border-tertiary text-tertiary font-medium hover:bg-tertiary-container/10 transition-colors text-sm">
+        Pause
+      </button>
+      <a href="Screen-1.html"
+        class="px-6 py-2.5 rounded-lg text-primary font-medium hover:bg-primary-container/10 transition-colors text-sm flex items-center gap-2">
+        Continue in Background
+        <span class="material-symbols-outlined text-sm">open_in_new</span>
+      </a>
+    </div>
+
+  </main>
+</body>
+
+</html>

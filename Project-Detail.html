@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Smart Ethical Marketing | Neorise FSL</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary": "#ffffff",
+            "surface-container-highest": "#dce2f3",
+            "outline-variant": "#ccc3d8",
+            "secondary-fixed": "#89f5e7",
+            "secondary-container": "#86f2e4",
+            "primary": "#630ed4",
+            "on-secondary-fixed-variant": "#005049",
+            "on-background": "#151c27",
+            "inverse-on-surface": "#ebf1ff",
+            "surface-dim": "#d3daea",
+            "on-primary-fixed": "#25005a",
+            "inverse-surface": "#2a313d",
+            "on-surface-variant": "#4a4455",
+            "on-primary-container": "#ede0ff",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#dce2f3",
+            "surface-tint": "#732ee4",
+            "secondary-fixed-dim": "#6bd8cb",
+            "on-primary": "#ffffff",
+            "surface-bright": "#f9f9ff",
+            "background": "#f9f9ff",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed-variant": "#852400",
+            "tertiary-fixed": "#ffdbd0",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-high": "#e2e8f8",
+            "outline": "#7b7487",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#ffded5",
+            "on-error-container": "#93000a",
+            "surface": "#f9f9ff",
+            "on-secondary-fixed": "#00201d",
+            "error-container": "#ffdad6",
+            "inverse-primary": "#d2bbff",
+            "on-tertiary-fixed": "#3a0a00",
+            "primary-container": "#7c3aed",
+            "on-secondary-container": "#006f66",
+            "on-surface": "#151c27",
+            "surface-container-low": "#f0f3ff",
+            "tertiary-fixed-dim": "#ffb59f",
+            "tertiary-container": "#b83b0e",
+            "surface-container": "#e7eefe",
+            "secondary": "#006a61",
+            "primary-fixed": "#eaddff",
+            "tertiary": "#922800",
+            "on-primary-fixed-variant": "#5a00c6",
+            "primary-fixed-dim": "#d2bbff"
+          },
+          fontFamily: {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+</head>
+
+<body class="bg-surface text-on-surface">
+
+  <!-- Top Navigation — unified with Screen-1 -->
+  <header class="bg-white/80 backdrop-blur-xl top-0 sticky z-50 shadow-sm">
+    <div class="flex justify-between items-center w-full px-14 py-3 max-w-screen-2xl mx-auto">
+      <div class="flex items-center gap-8">
+        <a href="Screen-1.html" class="text-xl font-bold tracking-tighter text-violet-700">Neorise FSL</a>
+        <nav class="hidden md:flex items-center gap-6 font-sans text-sm font-medium tracking-tight">
+          <a class="text-slate-600 hover:text-slate-900 transition-colors" href="Screen-1.html">Dashboard</a>
+          <a class="text-violet-700 font-semibold border-b-2 border-violet-600 pb-1" href="Screen-1.html">Projects</a>
+          <a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">Framework</a>
+          <a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">Settings</a>
+        </nav>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="flex items-center bg-slate-100 rounded-lg px-3 py-1.5 gap-2">
+          <span class="material-symbols-outlined text-slate-500 text-sm">search</span>
+          <input class="bg-transparent border-none focus:ring-0 text-sm w-48" placeholder="Search curriculum..." type="text" />
+        </div>
+        <button class="p-2 hover:bg-slate-100 rounded-lg transition-colors">
+          <span class="material-symbols-outlined text-slate-600">notifications</span>
+        </button>
+        <button class="p-2 hover:bg-slate-100 rounded-lg transition-colors">
+          <span class="material-symbols-outlined text-slate-600">help</span>
+        </button>
+        <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+          <div class="text-right hidden sm:block">
+            <p class="text-xs font-semibold text-on-surface">Kunal Darji</p>
+            <p class="text-[10px] text-slate-500">Admin</p>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center text-xs font-bold" title="Kunal Darji, Admin">KD</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="fixed left-0 top-[57px] h-[calc(100vh-57px)] w-56 flex flex-col py-5 bg-white border-r border-slate-100 z-40 hidden md:flex">
+    <!-- Project mini card -->
+    <div class="px-4 mb-5">
+      <div class="bg-surface-container-low rounded-xl p-3.5">
+        <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Current Project</p>
+        <p class="text-sm font-bold text-on-surface leading-snug">Smart Ethical Marketing</p>
+        <div class="flex items-center gap-2 mt-2">
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-teal-100 text-teal-700 rounded text-[10px] font-bold">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Published
+          </span>
+          <span class="text-[10px] text-slate-400">Grade 8</span>
+        </div>
+      </div>
+    </div>
+    <!-- Nav links -->
+    <nav class="flex-1 px-3">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 px-2 mb-2">Navigation</p>
+      <div class="space-y-0.5">
+        <a class="flex items-center gap-3 px-3 py-2.5 bg-primary/8 text-primary rounded-lg font-semibold text-sm" href="#" style="background-color: rgba(99,14,212,0.07);">
+          <span class="material-symbols-outlined text-[20px]">assignment</span>
+          Project Overview
+        </a>
+        <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 rounded-lg text-sm transition-colors" href="#">
+          <span class="material-symbols-outlined text-[20px]">calendar_view_week</span>
+          Weekly Schedule
+        </a>
+        <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 rounded-lg text-sm transition-colors" href="#">
+          <span class="material-symbols-outlined text-[20px]">architecture</span>
+          Frameworks
+        </a>
+        <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 rounded-lg text-sm transition-colors" href="#">
+          <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+          AI Insights
+        </a>
+      </div>
+    </nav>
+    <!-- Back to all projects -->
+    <div class="px-4 mt-auto">
+      <a href="Screen-1.html" class="flex items-center gap-2 text-sm text-slate-500 hover:text-violet-600 transition-colors font-medium px-2 py-2">
+        <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+        All Projects
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="md:ml-56 pt-8 px-8 pb-16 min-h-screen bg-surface">
+    <div class="max-w-screen-xl mx-auto">
+
+      <!-- Breadcrumb -->
+      <nav class="flex gap-2 text-xs font-medium text-on-surface-variant mb-6">
+        <a href="Screen-1.html" class="hover:text-primary transition-colors">Dashboard</a>
+        <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+        <a href="Screen-1.html" class="hover:text-primary transition-colors">Projects</a>
+        <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+        <span class="text-primary font-bold">Smart Ethical Marketing</span>
+      </nav>
+
+      <!-- Page Header -->
+      <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-6 mb-8">
+        <div>
+          <h1 class="text-3xl font-extrabold text-on-surface tracking-tight mb-3">Smart Ethical Marketing in Future Digital Economy</h1>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant rounded-full text-xs font-bold">Grade 8</span>
+            <span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold">Human Services</span>
+            <span class="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-xs font-bold flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span> Published
+            </span>
+            <span class="px-3 py-1 text-on-surface-variant text-xs font-medium">Created: 15 Mar 2026</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 shrink-0">
+          <button class="px-4 py-2 text-primary font-semibold hover:bg-primary/5 rounded-lg transition-colors text-sm">Edit Project</button>
+          <button class="px-4 py-2 border border-primary text-primary font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary/5 transition-colors text-sm">
+            <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+            Generate Materials
+          </button>
+          <span class="inline-flex items-center gap-1.5 bg-teal-500 text-white px-4 py-2 rounded-lg font-semibold text-sm">
+            <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            Published
+          </span>
+          <button class="p-2 hover:bg-surface-container-high rounded-lg">
+            <span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Summary Bar -->
+      <section class="mb-8 p-6 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10">
+        <div class="flex gap-1.5 mb-3 h-2.5">
+          <div class="flex-1 bg-teal-500 rounded-full"></div>
+          <div class="flex-1 bg-teal-500 rounded-full"></div>
+          <div class="flex-1 bg-teal-500 rounded-full"></div>
+          <div class="flex-1 bg-teal-500 rounded-full"></div>
+          <div class="flex-1 bg-teal-500 rounded-full"></div>
+          <div class="flex-1 bg-teal-500 rounded-full"></div>
+        </div>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm font-medium text-on-surface-variant">
+          <span class="flex items-center gap-1 text-teal-600 font-bold">
+            <span class="material-symbols-outlined text-[16px]">check_circle</span>
+            18/18 sessions generated
+          </span>
+          <span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+          <span class="flex items-center gap-1 text-teal-600 font-bold">
+            <span class="material-symbols-outlined text-[16px]">check_circle</span>
+            18/18 approved
+          </span>
+          <span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+          <span class="flex items-center gap-1 text-teal-600 font-bold">
+            <span class="material-symbols-outlined text-[16px]">check_circle</span>
+            54 materials generated
+          </span>
+        </div>
+      </section>
+
+      <!-- Main Grid: Accordion + Side Panel -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- Week Accordion (8 cols) -->
+        <div class="lg:col-span-8 space-y-3">
+
+          <!-- Week 1 — Expanded -->
+          <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/10">
+            <button class="w-full flex items-center justify-between px-6 py-4 hover:bg-surface-container-low transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="font-bold">Week 1</span>
+                <span class="px-2.5 py-1 bg-[#0D9488]/10 text-[#0D9488] rounded-full text-xs font-bold uppercase tracking-wide">Explore</span>
+                <p class="hidden md:block text-sm text-on-surface-variant italic truncate max-w-xs">Building foundational knowledge of consumer data rights...</p>
+              </div>
+              <div class="flex items-center gap-3 shrink-0">
+                <span class="flex items-center gap-1 text-teal-600 text-sm font-bold">
+                  <span class="material-symbols-outlined text-[16px]">check_circle</span>3/3
+                </span>
+                <span class="material-symbols-outlined text-on-surface-variant">expand_less</span>
+              </div>
+            </button>
+            <div class="px-6 pb-6 space-y-4 bg-surface-container-low/20">
+              <!-- Session 1 — Expanded -->
+              <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+                <div class="flex items-center justify-between px-5 py-3 bg-surface-container-low/60">
+                  <div class="flex items-center gap-3">
+                    <span class="font-bold text-sm">Session 1</span>
+                    <span class="px-2.5 py-1 border border-outline-variant/50 rounded text-[10px] font-bold uppercase tracking-wide">Block Period 1 · Challenge 1</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-teal-100 text-teal-700 rounded text-[10px] font-bold uppercase">Approved</span>
+                </div>
+                <div class="p-5 grid grid-cols-1 md:grid-cols-5 gap-6">
+                  <div class="md:col-span-3">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Session Description</p>
+                    <div class="text-sm leading-relaxed text-on-surface space-y-2">
+                      <p>This session introduces the paradigm shift from traditional intrusive advertising to "Respectful Engagement." Students will analyze how AI-driven algorithms personalize content and the ethical friction points regarding data privacy and manipulation.</p>
+                      <p>Focusing on the <em>Right to Erasure</em> and <em>Informed Consent</em>, the discussion pivots towards real-world examples of predatory marketing in the social media era.</p>
+                      <a class="text-primary font-bold inline-block mt-1 text-sm" href="#">Show More</a>
+                    </div>
+                  </div>
+                  <div class="md:col-span-2 bg-surface-container-low rounded-xl p-4">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">Framework Reference</p>
+                    <div class="space-y-3">
+                      <div>
+                        <p class="text-[10px] font-bold uppercase text-[#0D9488] mb-0.5">Sub-Pillar</p>
+                        <p class="text-sm font-bold">SP13 · Global Citizenship</p>
+                      </div>
+                      <div>
+                        <p class="text-[10px] font-bold uppercase text-primary mb-0.5">Competency</p>
+                        <span class="px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP13.C1</span>
+                      </div>
+                      <p class="text-xs text-on-surface-variant leading-tight">Apply systemic thinking to evaluate digital impact on vulnerable populations.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="px-5 py-3 flex items-center justify-between border-t border-slate-100">
+                  <div class="flex gap-4">
+                    <button class="flex items-center gap-1.5 text-on-surface-variant text-sm font-medium hover:text-on-surface">
+                      <span class="material-symbols-outlined text-[16px]">edit</span>Edit
+                    </button>
+                    <button onclick="openRegenerateModal('Session 1', 'Project Launch & Context Exploration')" class="flex items-center gap-1.5 text-amber-600 text-sm font-medium hover:text-amber-700">
+                      <span class="material-symbols-outlined text-[16px]">refresh</span>Regenerate
+                    </button>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <span class="text-teal-600 font-bold text-sm">Approved ✓</span>
+                    <a class="text-primary font-bold text-sm flex items-center gap-1" href="Session-Review.html?session=1">
+                      View Materials <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- Session 2 — Compact -->
+                            <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border-teal-400 border-l-4">
+              <button onclick="toggleSession(2)" class="w-full p-4 flex items-center justify-between hover:bg-slate-50/80 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center text-sm font-bold">2</span>
+                  <div class="text-left">
+                    <p class="font-semibold text-sm">Understanding the Challenge</p>
+                    <p class="text-xs text-on-surface-variant">Block Period 2 &middot; Challenge 2 &middot; SP14</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-teal-600 font-bold text-xs">Approved ✓</span>
+                  <span id="icon-session-2" class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
+                </div>
+              </button>
+              <div id="session-2-detail" class="hidden"></div>
+            </div>
+              <!-- Session 3 — Compact -->
+                            <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border-teal-400 border-l-4">
+              <button onclick="toggleSession(3)" class="w-full p-4 flex items-center justify-between hover:bg-slate-50/80 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center text-sm font-bold">3</span>
+                  <div class="text-left">
+                    <p class="font-semibold text-sm">Prior Knowledge &amp; Curiosity Mapping</p>
+                    <p class="text-xs text-on-surface-variant">Single Period &middot; Reflection</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-teal-600 font-bold text-xs">Approved ✓</span>
+                  <span id="icon-session-3" class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
+                </div>
+              </button>
+              <div id="session-3-detail" class="hidden"></div>
+            </div>
+            </div>
+          </div>
+
+          <!-- ─── WEEK 2 — LEARN ─────────────────────────────────── -->
+          <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/10">
+            <button onclick="toggleWeek(2)" class="w-full flex items-center justify-between px-6 py-4 hover:bg-surface-container-low transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="font-bold">Week 2</span>
+                <span class="px-2.5 py-1 bg-[#7C3AED]/10 text-[#7C3AED] rounded-full text-xs font-bold uppercase tracking-wide">Learn</span>
+                <p class="hidden md:block text-sm text-on-surface-variant italic truncate max-w-xs">Core concepts, data tools &amp; case study analysis</p>
+              </div>
+              <div class="flex items-center gap-3 shrink-0">
+                <span class="flex items-center gap-1 text-teal-600 text-sm font-bold"><span class="material-symbols-outlined text-[16px]">check_circle</span>3/3</span>
+                <span id="icon-week-2" class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+              </div>
+            </button>
+            <div id="week-2-content" class="hidden px-6 pb-6 space-y-4 bg-surface-container-low/20">
+              <!-- Session 4 — Expanded -->
+              <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+                <div class="flex items-center justify-between px-5 py-3 bg-surface-container-low/60">
+                  <div class="flex items-center gap-3">
+                    <span class="font-bold text-sm">Session 4</span>
+                    <span class="px-2.5 py-1 border border-outline-variant/50 rounded text-[10px] font-bold uppercase tracking-wide">Block Period 1 · Challenge 3</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-teal-100 text-teal-700 rounded text-[10px] font-bold uppercase">Approved</span>
+                </div>
+                <div class="p-5 grid grid-cols-1 md:grid-cols-5 gap-6">
+                  <div class="md:col-span-3">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Session Description</p>
+                    <div class="text-sm leading-relaxed text-on-surface space-y-2">
+                      <p>Students understand how marketing uses data, digital tools, and media formats. Introduces data-driven marketing — target audience segmentation, basic data forms (tables/charts), and tools like Canva and Google Sheets.</p>
+                      <p>Students identify patterns ("Which platform is most popular?"), create basic visual insights, and explore what data is ethical vs unsafe to use in campaigns.</p>
+                    </div>
+                  </div>
+                  <div class="md:col-span-2 bg-surface-container-low rounded-xl p-4">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">Framework Reference</p>
+                    <div class="space-y-3">
+                      <div>
+                        <p class="text-[10px] font-bold uppercase text-[#7C3AED] mb-0.5">Sub-Pillar (LL)</p>
+                        <p class="text-sm font-bold">SP5 · Environmental &amp; Sustainability Literacy</p>
+                      </div>
+                      <div>
+                        <p class="text-[10px] font-bold uppercase text-primary mb-0.5">Competency</p>
+                        <span class="px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP5.C1</span>
+                        <span class="ml-1 px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP4.C3</span>
+                      </div>
+                      <p class="text-[10px] font-bold uppercase text-[#7C3AED] mb-0.5 mt-1">Also: MM Track</p>
+                      <p class="text-xs text-on-surface-variant">SP15+SP16 · IoT/Robotics → MSP15.C1, MSP15.C2, MSP16.C1, MSP16.C2</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="px-5 py-3 flex items-center justify-between border-t border-slate-100">
+                  <div class="flex gap-4">
+                    <button class="flex items-center gap-1.5 text-on-surface-variant text-sm font-medium hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">edit</span>Edit</button>
+                    <button onclick="openRegenerateModal('Session 4', 'Concept Exploration')" class="flex items-center gap-1.5 text-amber-600 text-sm font-medium hover:text-amber-700"><span class="material-symbols-outlined text-[16px]">refresh</span>Regenerate</button>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <span class="text-teal-600 font-bold text-sm">Approved ✓</span>
+                    <a class="text-primary font-bold text-sm flex items-center gap-1" href="Session-Review.html?session=4">View Materials <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Session 5 — Compact -->
+                            <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border-[#7C3AED] border-l-4">
+              <button onclick="toggleSession(5)" class="w-full p-4 flex items-center justify-between hover:bg-slate-50/80 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-full bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center text-sm font-bold">5</span>
+                  <div class="text-left">
+                    <p class="font-semibold text-sm">Case Study &amp; Skill Practice</p>
+                    <p class="text-xs text-on-surface-variant">Block Period 2 &middot; Challenge 4 &middot; SP2</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-teal-600 font-bold text-xs">Approved ✓</span>
+                  <span id="icon-session-5" class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
+                </div>
+              </button>
+              <div id="session-5-detail" class="hidden"></div>
+            </div>
+              <!-- Session 6 — Compact -->
+                            <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border-[#7C3AED] border-l-4">
+              <button onclick="toggleSession(6)" class="w-full p-4 flex items-center justify-between hover:bg-slate-50/80 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-full bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center text-sm font-bold">6</span>
+                  <div class="text-left">
+                    <p class="font-semibold text-sm">Knowledge Consolidation</p>
+                    <p class="text-xs text-on-surface-variant">Single Period &middot; Reflection</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-teal-600 font-bold text-xs">Approved ✓</span>
+                  <span id="icon-session-6" class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
+                </div>
+              </button>
+              <div id="session-6-detail" class="hidden"></div>
+            </div>
+            </div>
+          </div>
+
+          <!-- ─── WEEK 3 — FIND ──────────────────────────────────── -->
+          <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/10">
+            <button onclick="toggleWeek(3)" class="w-full flex items-center justify-between px-6 py-4 hover:bg-surface-container-low transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="font-bold">Week 3</span>
+                <span class="px-2.5 py-1 bg-[#D97706]/10 text-[#D97706] rounded-full text-xs font-bold uppercase tracking-wide">Find</span>
+                <p class="hidden md:block text-sm text-on-surface-variant italic truncate max-w-xs">User research, interviews &amp; HMW problem framing</p>
+              </div>
+              <div class="flex items-center gap-3 shrink-0">
+                <span class="flex items-center gap-1 text-teal-600 text-sm font-bold"><span class="material-symbols-outlined text-[16px]">check_circle</span>3/3</span>
+                <span id="icon-week-3" class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+              </div>
+            </button>
+            <div id="week-3-content" class="hidden px-6 pb-6 space-y-4 bg-surface-container-low/20">
+              <!-- Session 7 — Expanded -->
+              <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+                <div class="flex items-center justify-between px-5 py-3 bg-surface-container-low/60">
+                  <div class="flex items-center gap-3">
+                    <span class="font-bold text-sm">Session 7</span>
+                    <span class="px-2.5 py-1 border border-outline-variant/50 rounded text-[10px] font-bold uppercase tracking-wide">Block Period 1 · Challenge 5</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-teal-100 text-teal-700 rounded text-[10px] font-bold uppercase">Approved</span>
+                </div>
+                <div class="p-5 grid grid-cols-1 md:grid-cols-5 gap-6">
+                  <div class="md:col-span-3">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Session Description</p>
+                    <div class="text-sm leading-relaxed text-on-surface space-y-2">
+                      <p>Students identify real marketing problems — misleading ads, overconsumption, lack of awareness — and analyze who is affected and why it matters. Builds user-centered thinking through empathy mapping.</p>
+                      <p>Students frame "People like ___ face ___ because ___" statements and refine them into <em>How Might We</em> (HMW) questions for their campaign.</p>
+                    </div>
+                  </div>
+                  <div class="md:col-span-2 bg-surface-container-low rounded-xl p-4">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">Framework Reference</p>
+                    <div class="space-y-3">
+                      <div>
+                        <p class="text-[10px] font-bold uppercase text-[#D97706] mb-0.5">Sub-Pillar</p>
+                        <p class="text-sm font-bold">SP11 · Design Thinking</p>
+                      </div>
+                      <div>
+                        <p class="text-[10px] font-bold uppercase text-primary mb-0.5">Competency</p>
+                        <span class="px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP11.C1</span>
+                        <span class="ml-1 px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP4.C2</span>
+                        <span class="ml-1 px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP4.C4</span>
+                      </div>
+                      <p class="text-xs text-on-surface-variant leading-tight">Conduct user research, analyse data, and synthesise into a focused HMW problem statement.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="px-5 py-3 flex items-center justify-between border-t border-slate-100">
+                  <div class="flex gap-4">
+                    <button class="flex items-center gap-1.5 text-on-surface-variant text-sm font-medium hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">edit</span>Edit</button>
+                    <button onclick="openRegenerateModal('Session 7', 'Problem Exploration')" class="flex items-center gap-1.5 text-amber-600 text-sm font-medium hover:text-amber-700"><span class="material-symbols-outlined text-[16px]">refresh</span>Regenerate</button>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <span class="text-teal-600 font-bold text-sm">Approved ✓</span>
+                    <a class="text-primary font-bold text-sm flex items-center gap-1" href="Session-Review.html?session=7">View Materials <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Session 8 -->
+                            <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border-[#D97706] border-l-4">
+              <button onclick="toggleSession(8)" class="w-full p-4 flex items-center justify-between hover:bg-slate-50/80 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-full bg-[#D97706]/10 text-[#D97706] flex items-center justify-center text-sm font-bold">8</span>
+                  <div class="text-left">
+                    <p class="font-semibold text-sm">User Research &amp; Data Gathering</p>
+                    <p class="text-xs text-on-surface-variant">Block Period 2 &middot; Challenge 6 &middot; SP12</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-teal-600 font-bold text-xs">Approved ✓</span>
+                  <span id="icon-session-8" class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
+                </div>
+              </button>
+              <div id="session-8-detail" class="hidden"></div>
+            </div>
+              <!-- Session 9 -->
+                            <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border-[#D97706] border-l-4">
+              <button onclick="toggleSession(9)" class="w-full p-4 flex items-center justify-between hover:bg-slate-50/80 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-full bg-[#D97706]/10 text-[#D97706] flex items-center justify-center text-sm font-bold">9</span>
+                  <div class="text-left">
+                    <p class="font-semibold text-sm">Insights &amp; Problem Framing</p>
+                    <p class="text-xs text-on-surface-variant">Single Period &middot; Reflection</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-teal-600 font-bold text-xs">Approved ✓</span>
+                  <span id="icon-session-9" class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
+                </div>
+              </button>
+              <div id="session-9-detail" class="hidden"></div>
+            </div>
+            </div>
+          </div>
+
+          <!-- ─── WEEK 4 — CREATE ────────────────────────────────── -->
+          <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/10">
+            <button onclick="toggleWeek(4)" class="w-full flex items-center justify-between px-6 py-4 hover:bg-surface-container-low transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="font-bold">Week 4</span>
+                <span class="px-2.5 py-1 bg-[#E85D30]/10 text-[#E85D30] rounded-full text-xs font-bold uppercase tracking-wide">Create</span>
+                <p class="hidden md:block text-sm text-on-surface-variant italic truncate max-w-xs">Ideation workshop, prototype development &amp; design docs</p>
+              </div>
+              <div class="flex items-center gap-3 shrink-0">
+                <span class="flex items-center gap-1 text-teal-600 text-sm font-bold"><span class="material-symbols-outlined text-[16px]">check_circle</span>3/3</span>
+                <span id="icon-week-4" class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+              </div>
+            </button>
+            <div id="week-4-content" class="hidden px-6 pb-6 space-y-4 bg-surface-container-low/20">
+              <!-- Session 10 — Expanded -->
+              <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+                <div class="flex items-center justify-between px-5 py-3 bg-surface-container-low/60">
+                  <div class="flex items-center gap-3">
+                    <span class="font-bold text-sm">Session 10</span>
+                    <span class="px-2.5 py-1 border border-outline-variant/50 rounded text-[10px] font-bold uppercase tracking-wide">Block Period 1 · Challenge 7</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-teal-100 text-teal-700 rounded text-[10px] font-bold uppercase">Approved</span>
+                </div>
+                <div class="p-5 grid grid-cols-1 md:grid-cols-5 gap-6">
+                  <div class="md:col-span-3">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Session Description</p>
+                    <div class="text-sm leading-relaxed text-on-surface space-y-2">
+                      <p>Students establish success criteria for a good marketing campaign (Ethical, Clear message, User-focused, Feasible, Creative), then generate ideas using rapid brainstorming, SCAMPER, and "worst possible idea" → flip techniques.</p>
+                      <p>Ideas are grouped by theme and evaluated against the criteria matrix. Students link their best idea to SDG goals and social impact.</p>
+                    </div>
+                  </div>
+                  <div class="md:col-span-2 bg-surface-container-low rounded-xl p-4">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">Framework Reference</p>
+                    <div class="space-y-3">
+                      <div>
+                        <p class="text-[10px] font-bold uppercase text-[#E85D30] mb-0.5">Sub-Pillar (LL)</p>
+                        <p class="text-sm font-bold">SP5 · SP11 · SP13</p>
+                      </div>
+                      <div>
+                        <p class="text-[10px] font-bold uppercase text-primary mb-0.5">Competency</p>
+                        <span class="px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP5.C2</span>
+                        <span class="ml-1 px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP11.C2</span>
+                        <span class="ml-1 px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP13.C3</span>
+                      </div>
+                      <p class="text-[10px] font-bold uppercase text-[#E85D30] mb-0.5 mt-1">Also: MM Track</p>
+                      <p class="text-xs text-on-surface-variant">SP15+SP16 → MSP16.C3, MSP15.C3</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="px-5 py-3 flex items-center justify-between border-t border-slate-100">
+                  <div class="flex gap-4">
+                    <button class="flex items-center gap-1.5 text-on-surface-variant text-sm font-medium hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">edit</span>Edit</button>
+                    <button onclick="openRegenerateModal('Session 10', 'Idea Generation Workshop')" class="flex items-center gap-1.5 text-amber-600 text-sm font-medium hover:text-amber-700"><span class="material-symbols-outlined text-[16px]">refresh</span>Regenerate</button>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <span class="text-teal-600 font-bold text-sm">Approved ✓</span>
+                    <a class="text-primary font-bold text-sm flex items-center gap-1" href="Session-Review.html?session=10">View Materials <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Session 11 -->
+                            <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border-[#E85D30] border-l-4">
+              <button onclick="toggleSession(11)" class="w-full p-4 flex items-center justify-between hover:bg-slate-50/80 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-full bg-[#E85D30]/10 text-[#E85D30] flex items-center justify-center text-sm font-bold">11</span>
+                  <div class="text-left">
+                    <p class="font-semibold text-sm">Prototype Development</p>
+                    <p class="text-xs text-on-surface-variant">Block Period 2 &middot; Challenge 8 &middot; SP17</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-teal-600 font-bold text-xs">Approved ✓</span>
+                  <span id="icon-session-11" class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
+                </div>
+              </button>
+              <div id="session-11-detail" class="hidden"></div>
+            </div>
+              <!-- Session 12 -->
+                            <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border-[#E85D30] border-l-4">
+              <button onclick="toggleSession(12)" class="w-full p-4 flex items-center justify-between hover:bg-slate-50/80 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-full bg-[#E85D30]/10 text-[#E85D30] flex items-center justify-center text-sm font-bold">12</span>
+                  <div class="text-left">
+                    <p class="font-semibold text-sm">Design Documentation</p>
+                    <p class="text-xs text-on-surface-variant">Single Period &middot; Reflection</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-teal-600 font-bold text-xs">Approved ✓</span>
+                  <span id="icon-session-12" class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
+                </div>
+              </button>
+              <div id="session-12-detail" class="hidden"></div>
+            </div>
+            </div>
+          </div>
+
+          <!-- ─── WEEK 5 — IMPROVE ───────────────────────────────── -->
+          <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/10">
+            <button onclick="toggleWeek(5)" class="w-full flex items-center justify-between px-6 py-4 hover:bg-surface-container-low transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="font-bold">Week 5</span>
+                <span class="px-2.5 py-1 bg-[#2563EB]/10 text-[#2563EB] rounded-full text-xs font-bold uppercase tracking-wide">Improve</span>
+                <p class="hidden md:block text-sm text-on-surface-variant italic truncate max-w-xs">Testing, feedback loops &amp; ethical impact reflection</p>
+              </div>
+              <div class="flex items-center gap-3 shrink-0">
+                <span class="flex items-center gap-1 text-teal-600 text-sm font-bold"><span class="material-symbols-outlined text-[16px]">check_circle</span>3/3</span>
+                <span id="icon-week-5" class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+              </div>
+            </button>
+            <div id="week-5-content" class="hidden px-6 pb-6 space-y-4 bg-surface-container-low/20">
+              <!-- Session 13 — Expanded -->
+              <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+                <div class="flex items-center justify-between px-5 py-3 bg-surface-container-low/60">
+                  <div class="flex items-center gap-3">
+                    <span class="font-bold text-sm">Session 13</span>
+                    <span class="px-2.5 py-1 border border-outline-variant/50 rounded text-[10px] font-bold uppercase tracking-wide">Block Period 1 · Challenge 9</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-teal-100 text-teal-700 rounded text-[10px] font-bold uppercase">Approved</span>
+                </div>
+                <div class="p-5 grid grid-cols-1 md:grid-cols-5 gap-6">
+                  <div class="md:col-span-3">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Session Description</p>
+                    <div class="text-sm leading-relaxed text-on-surface space-y-2">
+                      <p>Students test their campaigns with peers using a checklist (Is the message clear? Is it ethical? Would users trust it?). They observe reactions, collect feedback (likes/confusions/suggestions), and analyse what worked.</p>
+                      <p>Introduces simple venture thinking — what value does the idea create, what resources are needed, and what ethical and practical risks exist.</p>
+                    </div>
+                  </div>
+                  <div class="md:col-span-2 bg-surface-container-low rounded-xl p-4">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">Framework Reference</p>
+                    <div class="space-y-3">
+                      <div>
+                        <p class="text-[10px] font-bold uppercase text-[#2563EB] mb-0.5">Sub-Pillar</p>
+                        <p class="text-sm font-bold">SP12 · Entrepreneurial Mindset</p>
+                      </div>
+                      <div>
+                        <p class="text-[10px] font-bold uppercase text-primary mb-0.5">Competency</p>
+                        <span class="px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP12.C2</span>
+                        <span class="ml-1 px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP12.C3</span>
+                        <span class="ml-1 px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP6.C2</span>
+                        <span class="ml-1 px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP6.C4</span>
+                      </div>
+                      <p class="text-xs text-on-surface-variant leading-tight">Design a simple venture model, identify risks, and evaluate responsible mitigation strategies.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="px-5 py-3 flex items-center justify-between border-t border-slate-100">
+                  <div class="flex gap-4">
+                    <button class="flex items-center gap-1.5 text-on-surface-variant text-sm font-medium hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">edit</span>Edit</button>
+                    <button onclick="openRegenerateModal('Session 13', 'Prototype Testing')" class="flex items-center gap-1.5 text-amber-600 text-sm font-medium hover:text-amber-700"><span class="material-symbols-outlined text-[16px]">refresh</span>Regenerate</button>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <span class="text-teal-600 font-bold text-sm">Approved ✓</span>
+                    <a class="text-primary font-bold text-sm flex items-center gap-1" href="Session-Review.html?session=13">View Materials <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Session 14 -->
+                            <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border-[#2563EB] border-l-4">
+              <button onclick="toggleSession(14)" class="w-full p-4 flex items-center justify-between hover:bg-slate-50/80 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-full bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center text-sm font-bold">14</span>
+                  <div class="text-left">
+                    <p class="font-semibold text-sm">Iteration &amp; Improvement</p>
+                    <p class="text-xs text-on-surface-variant">Block Period 2 &middot; Challenge 10 &middot; SP11</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-teal-600 font-bold text-xs">Approved ✓</span>
+                  <span id="icon-session-14" class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
+                </div>
+              </button>
+              <div id="session-14-detail" class="hidden"></div>
+            </div>
+              <!-- Session 15 -->
+                            <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border-[#2563EB] border-l-4">
+              <button onclick="toggleSession(15)" class="w-full p-4 flex items-center justify-between hover:bg-slate-50/80 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-full bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center text-sm font-bold">15</span>
+                  <div class="text-left">
+                    <p class="font-semibold text-sm">Impact &amp; Responsibility Reflection</p>
+                    <p class="text-xs text-on-surface-variant">Single Period &middot; Reflection</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-teal-600 font-bold text-xs">Approved ✓</span>
+                  <span id="icon-session-15" class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
+                </div>
+              </button>
+              <div id="session-15-detail" class="hidden"></div>
+            </div>
+            </div>
+          </div>
+
+          <!-- ─── WEEK 6 — REFLECT ───────────────────────────────── -->
+          <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/10">
+            <button onclick="toggleWeek(6)" class="w-full flex items-center justify-between px-6 py-4 hover:bg-surface-container-low transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="font-bold">Week 6</span>
+                <span class="px-2.5 py-1 bg-[#059669]/10 text-[#059669] rounded-full text-xs font-bold uppercase tracking-wide">Reflect</span>
+                <p class="hidden md:block text-sm text-on-surface-variant italic truncate max-w-xs">Showcase prep, final pitch &amp; future connections</p>
+              </div>
+              <div class="flex items-center gap-3 shrink-0">
+                <span class="flex items-center gap-1 text-teal-600 text-sm font-bold"><span class="material-symbols-outlined text-[16px]">check_circle</span>3/3</span>
+                <span id="icon-week-6" class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+              </div>
+            </button>
+            <div id="week-6-content" class="hidden px-6 pb-6 space-y-4 bg-surface-container-low/20">
+              <!-- Session 16 — Expanded -->
+              <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+                <div class="flex items-center justify-between px-5 py-3 bg-surface-container-low/60">
+                  <div class="flex items-center gap-3">
+                    <span class="font-bold text-sm">Session 16</span>
+                    <span class="px-2.5 py-1 border border-outline-variant/50 rounded text-[10px] font-bold uppercase tracking-wide">Block Period 1 · Challenge 11</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-teal-100 text-teal-700 rounded text-[10px] font-bold uppercase">Approved</span>
+                </div>
+                <div class="p-5 grid grid-cols-1 md:grid-cols-5 gap-6">
+                  <div class="md:col-span-3">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Session Description</p>
+                    <div class="text-sm leading-relaxed text-on-surface space-y-2">
+                      <p>Students structure their pitch using the Problem → Research → Idea → Impact → Ethics format. Teams create slides, posters, or demos focusing on clarity, visual appeal, and audience engagement.</p>
+                      <p>Peer practice rounds with feedback on confidence, clarity, and message. Teams refine based on feedback before the final presentation.</p>
+                    </div>
+                  </div>
+                  <div class="md:col-span-2 bg-surface-container-low rounded-xl p-4">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">Framework Reference</p>
+                    <div class="space-y-3">
+                      <div>
+                        <p class="text-[10px] font-bold uppercase text-[#059669] mb-0.5">Sub-Pillar</p>
+                        <p class="text-sm font-bold">SP12 · SP11 · SP4</p>
+                      </div>
+                      <div>
+                        <p class="text-[10px] font-bold uppercase text-primary mb-0.5">Competency</p>
+                        <span class="px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP12.C2</span>
+                        <span class="ml-1 px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP11.C4</span>
+                        <span class="ml-1 px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">MSP4.C1</span>
+                      </div>
+                      <p class="text-xs text-on-surface-variant leading-tight">Design a comprehensive pitch and justify solution to stakeholders using evidence and feedback.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="px-5 py-3 flex items-center justify-between border-t border-slate-100">
+                  <div class="flex gap-4">
+                    <button class="flex items-center gap-1.5 text-on-surface-variant text-sm font-medium hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">edit</span>Edit</button>
+                    <button onclick="openRegenerateModal('Session 16', 'Preparing the Showcase')" class="flex items-center gap-1.5 text-amber-600 text-sm font-medium hover:text-amber-700"><span class="material-symbols-outlined text-[16px]">refresh</span>Regenerate</button>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <span class="text-teal-600 font-bold text-sm">Approved ✓</span>
+                    <a class="text-primary font-bold text-sm flex items-center gap-1" href="Session-Review.html?session=16">View Materials <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Session 17 -->
+                            <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border-[#059669] border-l-4">
+              <button onclick="toggleSession(17)" class="w-full p-4 flex items-center justify-between hover:bg-slate-50/80 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-full bg-[#059669]/10 text-[#059669] flex items-center justify-center text-sm font-bold">17</span>
+                  <div class="text-left">
+                    <p class="font-semibold text-sm">Project Presentation / Pitch</p>
+                    <p class="text-xs text-on-surface-variant">Block Period 2 &middot; Challenge 12 &middot; SP12</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-teal-600 font-bold text-xs">Approved ✓</span>
+                  <span id="icon-session-17" class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
+                </div>
+              </button>
+              <div id="session-17-detail" class="hidden"></div>
+            </div>
+              <!-- Session 18 -->
+                            <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border-[#059669] border-l-4">
+              <button onclick="toggleSession(18)" class="w-full p-4 flex items-center justify-between hover:bg-slate-50/80 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-full bg-[#059669]/10 text-[#059669] flex items-center justify-center text-sm font-bold">18</span>
+                  <div class="text-left">
+                    <p class="font-semibold text-sm">Reflection &amp; Future Connections</p>
+                    <p class="text-xs text-on-surface-variant">Single Period &middot; Reflection</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-teal-600 font-bold text-xs">Approved ✓</span>
+                  <span id="icon-session-18" class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
+                </div>
+              </button>
+              <div id="session-18-detail" class="hidden"></div>
+            </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Side Panel (4 cols, sticky) -->
+        <div class="lg:col-span-4 sticky top-20 space-y-5">
+
+          <!-- Weekly Objectives -->
+          <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10">
+            <div class="flex items-center gap-2 mb-1">
+              <div class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[18px]">target</span>
+              </div>
+              <h3 class="font-bold text-base">Weekly Objectives</h3>
+            </div>
+            <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-4 mt-3">Week 1: Explore</p>
+            <ul class="space-y-4">
+              <li class="flex gap-3">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                <p class="text-sm leading-relaxed">Identify core ethical challenges in digital marketing through the lens of data sovereignty.</p>
+              </li>
+              <li class="flex gap-3">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                <p class="text-sm leading-relaxed">Analyze real-world case studies of marketing failures and consumer backlash.</p>
+              </li>
+              <li class="flex gap-3">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                <p class="text-sm leading-relaxed">Articulate the difference between persuasive techniques and psychological manipulation.</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Project Health Card -->
+          <div class="bg-gradient-to-br from-violet-600 to-primary-container p-6 rounded-xl text-white shadow-lg shadow-primary/20">
+            <p class="text-xs font-bold uppercase tracking-wider opacity-75 mb-1">Project Health</p>
+            <p class="text-2xl font-black mb-3">Exemplary</p>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2 text-sm font-medium">
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                Framework Alignment: 100%
+              </div>
+              <div class="flex items-center gap-2 text-sm font-medium opacity-80">
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                All 18 sessions approved
+              </div>
+              <div class="flex items-center gap-2 text-sm font-medium opacity-80">
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                54 materials ready
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/10">
+            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Quick Actions</p>
+            <div class="space-y-2">
+              <button class="w-full flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5 rounded-lg transition-colors text-left">
+                <span class="material-symbols-outlined text-[18px]">download</span>
+                Download All Materials
+              </button>
+              <button class="w-full flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50 rounded-lg transition-colors text-left">
+                <span class="material-symbols-outlined text-[18px]">share</span>
+                Share with Teachers
+              </button>
+              <button class="w-full flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50 rounded-lg transition-colors text-left">
+                <span class="material-symbols-outlined text-[18px]">edit</span>
+                Edit Project Details
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Regenerate Modal -->
+  <div id="regenerate-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+    <!-- Backdrop -->
+    <div onclick="closeRegenerateModal()" class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+
+    <!-- Modal Card -->
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg flex flex-col gap-0 overflow-hidden">
+
+      <!-- Header -->
+      <div class="flex items-start justify-between px-6 pt-6 pb-4 border-b border-slate-100">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="material-symbols-outlined text-amber-500 text-xl">refresh</span>
+            <h2 class="text-lg font-bold text-on-surface">Regenerate Content</h2>
+          </div>
+          <p id="modal-session-label" class="text-sm text-on-surface-variant font-medium"></p>
+        </div>
+        <button onclick="closeRegenerateModal()" class="p-1.5 hover:bg-slate-100 rounded-lg transition-colors text-slate-400 hover:text-slate-600">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="px-6 py-5 flex flex-col gap-4">
+        <div class="flex items-start gap-3 bg-amber-50 border border-amber-100 rounded-xl p-4">
+          <span class="material-symbols-outlined text-amber-500 text-lg mt-0.5">info</span>
+          <p class="text-sm text-amber-800 leading-relaxed">AI will regenerate this session's content. Tell it specifically what you want changed or improved.</p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label class="text-sm font-semibold text-on-surface">Your Instructions for AI</label>
+          <textarea
+            id="regenerate-prompt"
+            rows="5"
+            placeholder="e.g. Make the activities more interactive, add a group discussion component, focus more on ethical dilemmas around data privacy..."
+            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-surface-container-low text-sm text-on-surface placeholder:text-slate-400 focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-all"
+          ></textarea>
+          <p class="text-xs text-on-surface-variant">Leave blank to regenerate with the original framework prompt.</p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-slate-100 bg-slate-50/60">
+        <button onclick="closeRegenerateModal()" class="px-5 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-100 rounded-lg transition-all">
+          Cancel
+        </button>
+        <button onclick="submitRegenerate()" class="px-6 py-2.5 bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold rounded-lg flex items-center gap-2 transition-all shadow-md shadow-amber-200">
+          <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">auto_awesome</span>
+          Regenerate Now
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function openRegenerateModal(sessionNum, sessionName) {
+      document.getElementById('modal-session-label').textContent = sessionNum + ' — ' + sessionName;
+      document.getElementById('regenerate-prompt').value = '';
+      document.getElementById('regenerate-modal').classList.remove('hidden');
+      setTimeout(() => document.getElementById('regenerate-prompt').focus(), 100);
+    }
+
+    function closeRegenerateModal() {
+      document.getElementById('regenerate-modal').classList.add('hidden');
+    }
+
+    function submitRegenerate() {
+      const prompt = document.getElementById('regenerate-prompt').value.trim();
+      // Demo: just close modal (backend call hoga yahan)
+      closeRegenerateModal();
+    }
+
+    // ESC key se bhi close ho
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeRegenerateModal();
+    });
+
+    // Week accordion toggle
+    function toggleWeek(n) {
+      const content = document.getElementById('week-' + n + '-content');
+      const icon = document.getElementById('icon-week-' + n);
+      const isHidden = content.classList.contains('hidden');
+      content.classList.toggle('hidden', !isHidden);
+      icon.textContent = isHidden ? 'expand_less' : 'expand_more';
+    }
+
+    // ── Session-level accordion toggle ─────────────────────
+    const SESSIONS_PD = {
+      2:  { name:"Understanding the Challenge",           color:"#0D9488", sp:"SP14 \u00b7 Future of Work & Career",  msp:"MSP14.C2", compDesc:"Connects personal strengths and interests to possible roles and future opportunities.", generic:"Students unpack the project question, identify key ideas, explore examples, and begin identifying what they will need to learn." },
+      3:  { name:"Prior Knowledge & Curiosity Mapping",   color:"#0D9488", sp:"SP1 \u00b7 Knowing Self",              msp:"MSP1.C1",  compDesc:"Understands how relationships, roles, and environments influence identity and sense of self.", generic:"Students document what they already know, generate questions, and identify areas they want to explore further." },
+      5:  { name:"Case Study & Skill Practice",           color:"#7C3AED", sp:"SP2 \u00b7 Building Self",             msp:"MSP2.C1",  compDesc:"Identifies how emotions influence thoughts and behaviour and develops awareness of emotional responses.", generic:"Students explore real-world examples or complete guided tasks to apply concepts and practice key skills." },
+      6:  { name:"Knowledge Consolidation",               color:"#7C3AED", sp:"SP14 \u00b7 Future of Work & Career",  msp:"MSP14.C1", compDesc:"Demonstrates responsibility, persistence, and self-management in completing tasks and group commitments.", generic:"Students summarise key learnings and discuss how knowledge connects to the project challenge, then set personal and team goals." },
+      8:  { name:"User Research & Data Gathering",        color:"#D97706", sp:"SP12 \u00b7 Entrepreneurial Mindset",  msp:"MSP12.C1", compDesc:"Identifies unmet needs and validates whether the problem is real, relevant, and worth solving.", generic:"Students conduct interviews, surveys, or observations to understand user needs or contextual constraints." },
+      9:  { name:"Insights & Problem Framing",            color:"#D97706", sp:"SP12 \u00b7 Entrepreneurial Mindset",  msp:"MSP12.C1", compDesc:"Identifies unmet needs and validates whether the problem is real, relevant, and worth solving.", generic:"Students organise findings and define a clear problem statement they will attempt to solve." },
+      11: { name:"Prototype Development",                 color:"#E85D30", sp:"SP17 \u00b7 Emerging Tech [Add-On]",   msp:"MSP17.C1", compDesc:"Applies foundational design principles to create user-friendly solutions.", generic:"Teams begin building or designing a prototype of their solution using available tools and materials." },
+      12: { name:"Design Documentation",                  color:"#E85D30", sp:"SP14 \u00b7 Future of Work & Career",  msp:"MSP14.C3", compDesc:"Applies planning, organisation, and decision-making skills to coordinate with others and monitor personal progress.", generic:"Students record their design ideas, explain their approach, and plan the next steps in development." },
+      14: { name:"Iteration & Improvement",               color:"#2563EB", sp:"SP11 \u00b7 Design Thinking",          msp:"MSP11.C3", compDesc:"Constructs a prototype, tests with users, gathers feedback, and makes at least one significant revision.", generic:"Teams analyse feedback, identify limitations, and refine their prototype to improve performance." },
+      15: { name:"Impact & Responsibility Reflection",    color:"#2563EB", sp:"SP13 \u00b7 Global Citizenship",       msp:"MSP13.C2", compDesc:"Demonstrates awareness of how actions affect others locally and globally, showing empathy and responsibility.", generic:"Students reflect on ethical considerations, sustainability, user experience, and possible consequences of their solution." },
+      17: { name:"Project Presentation / Pitch",          color:"#059669", sp:"SP12 \u00b7 Entrepreneurial Mindset",  msp:"MSP12.C4", compDesc:"Develops a comprehensive pitch and can present and justify their solution to stakeholders.", generic:"Students present their work to peers, teachers, or invited audiences and explain their design decisions and outcomes." },
+      18: { name:"Reflection & Future Connections",       color:"#059669", sp:"SP14 \u00b7 Future of Work & Career",  msp:"MSP14.C2", compDesc:"Connects personal strengths, interests, and aspirations to possible roles and future opportunities.", generic:"Students reflect on what they learned, how ideas evolved, and how the experience connects to real-world problems and future opportunities." },
+    };
+
+    function toggleSession(n) {
+      const detail = document.getElementById('session-' + n + '-detail');
+      const icon   = document.getElementById('icon-session-' + n);
+      const isHidden = detail.classList.contains('hidden');
+      if (isHidden && !detail.dataset.loaded) {
+        const s = SESSIONS_PD[n];
+        detail.innerHTML =
+          '<div class="p-5 grid grid-cols-1 md:grid-cols-5 gap-6 border-t border-slate-100">' +
+            '<div class="md:col-span-3">' +
+              '<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Session Description</p>' +
+              '<p class="text-sm leading-relaxed text-on-surface">' + s.generic + '</p>' +
+            '</div>' +
+            '<div class="md:col-span-2 bg-surface-container-low rounded-xl p-4">' +
+              '<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">Framework Reference</p>' +
+              '<div class="space-y-2">' +
+                '<p class="text-xs font-bold" style="color:' + s.color + '">' + s.sp + '</p>' +
+                '<span class="px-2 py-0.5 bg-primary/10 text-primary rounded font-mono text-xs">' + s.msp + '</span>' +
+                '<p class="text-xs text-on-surface-variant mt-2">' + s.compDesc + '</p>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="px-5 py-3 flex items-center justify-between border-t border-slate-100">' +
+            '<div class="flex gap-4">' +
+              '<button class="flex items-center gap-1.5 text-on-surface-variant text-sm font-medium hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">edit</span>Edit</button>' +
+              '<button onclick="openRegenerateModal(\'Session ' + n + '\', \'' + s.name.replace(/'/g, "\\'") + '\'); event.stopPropagation();" class="flex items-center gap-1.5 text-amber-600 text-sm font-medium hover:text-amber-700"><span class="material-symbols-outlined text-[16px]">refresh</span>Regenerate</button>' +
+            '</div>' +
+            '<div class="flex items-center gap-4">' +
+              '<span class="text-teal-600 font-bold text-sm">Approved \u2713</span>' +
+              '<a class="text-primary font-bold text-sm flex items-center gap-1" href="Session-Review.html?session=' + n + '" onclick="event.stopPropagation()">View Materials <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>' +
+            '</div>' +
+          '</div>';
+        detail.dataset.loaded = 'true';
+      }
+      detail.classList.toggle('hidden', !isHidden);
+      icon.textContent = isHidden ? 'expand_less' : 'expand_more';
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Create New Project | Neorise FSL</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#4a4455",
+            "inverse-primary": "#d2bbff",
+            "error": "#ba1a1a",
+            "surface-container-high": "#e2e8f8",
+            "on-secondary-container": "#006f66",
+            "on-tertiary-container": "#ffded5",
+            "on-primary-container": "#ede0ff",
+            "secondary": "#006a61",
+            "tertiary-fixed": "#ffdbd0",
+            "surface-variant": "#dce2f3",
+            "tertiary-container": "#b83b0e",
+            "primary": "#630ed4",
+            "error-container": "#ffdad6",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed": "#3a0a00",
+            "primary-fixed-dim": "#d2bbff",
+            "inverse-surface": "#2a313d",
+            "inverse-on-surface": "#ebf1ff",
+            "surface": "#f9f9ff",
+            "on-tertiary": "#ffffff",
+            "on-background": "#151c27",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "background": "#f9f9ff",
+            "on-surface": "#151c27",
+            "on-secondary-fixed": "#00201d",
+            "outline": "#7b7487",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#89f5e7",
+            "surface-container": "#e7eefe",
+            "on-tertiary-fixed-variant": "#852400",
+            "surface-tint": "#732ee4",
+            "surface-container-low": "#f0f3ff",
+            "secondary-container": "#86f2e4",
+            "on-primary": "#ffffff",
+            "surface-container-highest": "#dce2f3",
+            "surface-bright": "#f9f9ff",
+            "secondary-fixed-dim": "#6bd8cb",
+            "on-primary-fixed": "#25005a",
+            "primary-fixed": "#eaddff",
+            "tertiary-fixed-dim": "#ffb59f",
+            "surface-dim": "#d3daea",
+            "on-secondary-fixed-variant": "#005049",
+            "primary-container": "#7c3aed",
+            "outline-variant": "#ccc3d8",
+            "tertiary": "#922800",
+            "on-primary-fixed-variant": "#5a00c6"
+          },
+          fontFamily: {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9ff;
+      color: #151c27;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .glass-header {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col overflow-x-hidden">
+  <!-- TopNavBar -->
+  <nav
+    class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-sm dark:shadow-none tonal-shift bg-slate-50/50 dark:bg-slate-900/50">
+    <div class="flex justify-between items-center w-full px-14 py-3 max-w-screen-2xl mx-auto">
+      <div class="flex items-center gap-8">
+        <a href="Screen-1.html" class="text-xl font-bold tracking-tighter text-violet-700 dark:text-violet-500">Neorise FSL</a>
+        <div class="hidden md:flex items-center gap-6 font-sans text-sm font-medium tracking-tight">
+          <a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors"
+            href="Screen-1.html">Dashboard</a>
+          <a class="text-violet-700 dark:text-violet-400 font-semibold border-b-2 border-violet-600 pb-1"
+            href="Screen-1.html">Projects</a>
+          <a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors"
+            href="#">Framework</a>
+          <a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors"
+            href="#">Settings</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="relative hidden sm:block">
+          <span
+            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+          <input
+            class="pl-10 pr-4 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border-none text-sm focus:ring-2 focus:ring-violet-500 transition-all w-64"
+            placeholder="Search projects..." type="text" />
+        </div>
+        <button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+          <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+        </button>
+        <div class="h-8 w-8 rounded-full overflow-hidden border border-slate-200 ring-2 ring-violet-100">
+          <img alt="Hemant Shah, Admin"
+            data-alt="Professional headshot of a smiling man in a business casual environment with soft natural lighting"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgJxHem6SrM5hojpJ7mwqIsthRiuAAwBYlNEB94bqrsxuwfof7ADucAZpGfvsRdRE11_vzvgZTpHX-usr93BePi2tYe2uY7aoARN_tXxFD0Nqa941u7NoRFTah2KBrON6ZrS-2NkSTJghW3wmUuj6s1WQyaaqkMbxtPj39xqRnma0kUZ_ZXqW9e0BJjpxPR5FVvDl4wjtfjQAPy8Lj1sjiF4yv-SfZ1pbiKoyPw-4ELF6ZCsLL6UqdFOcNsAHkOY4xMRFs78UXfXYG" />
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main class="flex-grow w-full max-w-screen-2xl mx-auto px-14 py-10">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 mb-6 text-sm font-medium text-slate-500">
+      <a class="hover:text-violet-600 transition-colors" href="Screen-1.html">Dashboard</a>
+      <span class="material-symbols-outlined text-xs">chevron_right</span>
+      <span class="text-slate-400">Create New Project</span>
+    </nav>
+    <!-- Page Header -->
+    <header class="mb-8">
+      <h1 class="text-4xl font-extrabold tracking-tight text-violet-700 mb-2">Create New Project</h1>
+      <p class="text-lg text-slate-600 leading-relaxed">Define the project topic and AI will generate a complete 6-week curriculum with 18 sessions.</p>
+    </header>
+
+    <!-- Two-column layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
+
+      <!-- LEFT: Form (3/5) -->
+      <div class="lg:col-span-3">
+        <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-8 shadow-sm">
+          <form class="space-y-8">
+            <!-- Field 1: Project Topic -->
+            <div class="space-y-2">
+              <label class="block text-sm font-semibold text-on-surface" for="project-topic">
+                Project Topic <span class="text-error">*</span>
+              </label>
+              <input
+                class="w-full px-4 py-3 rounded-lg border-none bg-surface-container-low focus:ring-2 focus:ring-primary transition-all text-on-surface placeholder:text-slate-400"
+                id="project-topic" placeholder="e.g., Smart Ethical Marketing in Future Digital Economy" required=""
+                type="text" />
+              <p class="text-xs text-slate-500 font-medium italic">The main theme around which all 18 sessions will be designed</p>
+            </div>
+            <!-- Field 2: Subject Area -->
+            <div class="space-y-2">
+              <label class="block text-sm font-semibold text-on-surface" for="subject-area">
+                Subject Area <span class="text-error">*</span>
+              </label>
+              <select
+                class="w-full pl-4 pr-8 py-3 rounded-lg border-none bg-surface-container-low focus:ring-2 focus:ring-primary transition-all text-on-surface"
+                id="subject-area" required="">
+                <option disabled="" selected="" value="">Select a subject...</option>
+                <option>Human Services</option>
+                <option>Environmental Science</option>
+                <option>Digital Literacy</option>
+                <option>Commerce &amp; Finance</option>
+                <option>Arts &amp; Culture</option>
+                <option>STEM</option>
+                <option>Health &amp; Wellness</option>
+              </select>
+            </div>
+            <!-- Field 3: Grade Level -->
+            <div class="space-y-3">
+              <label class="block text-sm font-semibold text-on-surface">Grade Level</label>
+              <div class="flex flex-wrap gap-3">
+                <label class="flex-1 min-w-[90px] cursor-pointer group">
+                  <input class="sr-only peer" name="grade" type="radio" value="grade-6" />
+                  <div class="px-4 py-3 text-center rounded-lg border border-transparent bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container transition-all group-hover:bg-surface-container-high font-medium text-sm">Grade 6</div>
+                </label>
+                <label class="flex-1 min-w-[90px] cursor-pointer group">
+                  <input class="sr-only peer" name="grade" type="radio" value="grade-7" />
+                  <div class="px-4 py-3 text-center rounded-lg border border-transparent bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container transition-all group-hover:bg-surface-container-high font-medium text-sm">Grade 7</div>
+                </label>
+                <label class="flex-1 min-w-[90px] cursor-pointer group">
+                  <input checked="" class="sr-only peer" name="grade" type="radio" value="grade-8" />
+                  <div class="px-4 py-3 text-center rounded-lg border border-transparent bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container transition-all group-hover:bg-surface-container-high font-medium text-sm">Grade 8</div>
+                </label>
+                <label class="flex-1 min-w-[90px] cursor-pointer group">
+                  <input class="sr-only peer" name="grade" type="radio" value="grade-9" />
+                  <div class="px-4 py-3 text-center rounded-lg border border-transparent bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container transition-all group-hover:bg-surface-container-high font-medium text-sm">Grade 9</div>
+                </label>
+                <label class="flex-1 min-w-[90px] cursor-pointer group">
+                  <input class="sr-only peer" name="grade" type="radio" value="grade-10" />
+                  <div class="px-4 py-3 text-center rounded-lg border border-transparent bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container transition-all group-hover:bg-surface-container-high font-medium text-sm">Grade 10</div>
+                </label>
+              </div>
+            </div>
+            <!-- Row: Framework -->
+            <div class="space-y-2">
+              <label class="block text-sm font-semibold text-on-surface" for="framework">Framework</label>
+              <select
+                class="w-full pl-4 pr-8 py-3 rounded-lg border-none bg-surface-container-low focus:ring-2 focus:ring-primary transition-all text-on-surface"
+                id="framework">
+                <option>FSL 6-Week PBL Framework (Default)</option>
+                <option>FSL 4-Week Mini Project</option>
+              </select>
+            </div>
+            <!-- Field: Additional Context -->
+            <div class="space-y-2">
+              <label class="block text-sm font-semibold text-on-surface" for="context">Additional Context</label>
+              <div class="relative">
+                <textarea
+                  class="w-full px-4 py-3 rounded-lg border-none bg-surface-container-low focus:ring-2 focus:ring-primary transition-all text-on-surface resize-none placeholder:text-slate-400"
+                  id="context" maxlength="500"
+                  placeholder="Any specific requirements, learning goals, or student needs..." rows="4"></textarea>
+                <div class="absolute bottom-3 right-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">0 / 500</div>
+              </div>
+            </div>
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-end gap-3 pt-2 border-t border-slate-100">
+              <a href="Screen-1.html"
+                class="w-full sm:w-auto px-6 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-100 rounded-lg transition-all active:scale-95 text-center">Cancel</a>
+              <button
+                class="w-full sm:w-auto px-6 py-2.5 text-sm font-semibold text-violet-600 border border-violet-200 hover:bg-violet-50 rounded-lg transition-all active:scale-95"
+                type="button">Save as Draft</button>
+              <a href="AI-Generation-Progress.html"
+                class="w-full sm:w-auto px-8 py-3 bg-gradient-to-br from-primary to-primary-container text-white rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 flex items-center justify-center gap-2 font-bold tracking-tight transition-all active:scale-95">
+                <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                Create &amp; Generate
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- RIGHT: Sticky Panel (2/5) -->
+      <div class="lg:col-span-2">
+        <div class="sticky top-24 space-y-6">
+
+          <!-- Framework Preview -->
+          <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
+            <div class="flex items-center gap-2 mb-5">
+              <span class="material-symbols-outlined text-violet-600 text-xl">architecture</span>
+              <h3 class="text-sm font-bold text-on-surface">Framework Preview</h3>
+            </div>
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between px-3 py-2.5 rounded-lg bg-surface-container-low/60">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-widest w-12">Week 1</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-[#0D9488]/10 text-[#0D9488]">Explore</span>
+                </div>
+                <span class="text-xs text-slate-400">3 sessions</span>
+              </div>
+              <div class="flex items-center justify-between px-3 py-2.5 rounded-lg bg-surface-container-low/60">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-widest w-12">Week 2</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-[#7C3AED]/10 text-[#7C3AED]">Learn</span>
+                </div>
+                <span class="text-xs text-slate-400">3 sessions</span>
+              </div>
+              <div class="flex items-center justify-between px-3 py-2.5 rounded-lg bg-surface-container-low/60">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-widest w-12">Week 3</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-[#D97706]/10 text-[#D97706]">Find</span>
+                </div>
+                <span class="text-xs text-slate-400">3 sessions</span>
+              </div>
+              <div class="flex items-center justify-between px-3 py-2.5 rounded-lg bg-surface-container-low/60">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-widest w-12">Week 4</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-[#E85D30]/10 text-[#E85D30]">Create</span>
+                </div>
+                <span class="text-xs text-slate-400">3 sessions</span>
+              </div>
+              <div class="flex items-center justify-between px-3 py-2.5 rounded-lg bg-surface-container-low/60">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-widest w-12">Week 5</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-[#2563EB]/10 text-[#2563EB]">Improve</span>
+                </div>
+                <span class="text-xs text-slate-400">3 sessions</span>
+              </div>
+              <div class="flex items-center justify-between px-3 py-2.5 rounded-lg bg-surface-container-low/60">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-widest w-12">Week 6</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-[#059669]/10 text-[#059669]">Reflect</span>
+                </div>
+                <span class="text-xs text-slate-400">3 sessions</span>
+              </div>
+            </div>
+            <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-center gap-4 text-[11px] font-bold text-slate-400 uppercase tracking-tight">
+              <span>18 sessions</span>
+              <span class="h-1 w-1 bg-slate-300 rounded-full"></span>
+              <span>12 Block</span>
+              <span class="h-1 w-1 bg-slate-300 rounded-full"></span>
+              <span>6 Reflection</span>
+            </div>
+          </div>
+
+          <!-- What happens next -->
+          <div class="bg-gradient-to-br from-violet-50 to-indigo-50 border border-violet-100 rounded-xl p-6">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="material-symbols-outlined text-violet-500 text-xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+              <h3 class="text-sm font-bold text-violet-800">What happens next?</h3>
+            </div>
+            <ol class="space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-violet-200 text-violet-700 flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5">1</span>
+                <p class="text-sm text-slate-600">AI generates 18 session descriptions using your topic</p>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-violet-200 text-violet-700 flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5">2</span>
+                <p class="text-sm text-slate-600">Review and edit each session on the project page</p>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-violet-200 text-violet-700 flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5">3</span>
+                <p class="text-sm text-slate-600">Approve sessions and generate lesson plans, PPTs &amp; worksheets</p>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-violet-200 text-violet-700 flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5">4</span>
+                <p class="text-sm text-slate-600">Publish the curriculum for teachers to access</p>
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="w-full py-8 mt-auto border-t border-slate-100 dark:border-slate-800 bg-transparent">
+    <div class="max-w-screen-2xl mx-auto px-14 flex justify-between items-center">
+      <p class="text-xs font-normal text-slate-500">All Rights Reserved 2026 © Techinfinity™</p>
+      <div class="flex gap-6">
+        <a class="text-xs font-normal text-slate-400 hover:text-violet-600 transition-colors" href="#">Privacy
+          Policy</a>
+        <a class="text-xs font-normal text-slate-400 hover:text-violet-600 transition-colors" href="#">Terms of
+          Service</a>
+        <a class="text-xs font-normal text-slate-400 hover:text-violet-600 transition-colors" href="#">Support</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
